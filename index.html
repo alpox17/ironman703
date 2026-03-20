@@ -1,0 +1,2941 @@
+<!DOCTYPE html>
+<html lang="sk" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IM703 · Alex · Zell am See 2026</title>
+<style>
+/* ═══ RESET & BASE ═══════════════════════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+
+/* ═══ THEME VARS ══════════════════════════════════════════════════════════ */
+:root{
+  --bg:#f1f5f9;--surf:#ffffff;--surf2:#f8fafc;--surf3:#f1f5f9;
+  --brd:#e2e8f0;--brd2:#cbd5e1;
+  --txt:#0f172a;--txt2:#475569;--txt3:#94a3b8;
+  --accent:#3b82f6;--accent-lt:#dbeafe;
+  --run:#ea580c;--run-lt:#ffedd5;--run-br:#fed7aa;
+  --swim:#0284c7;--swim-lt:#e0f2fe;--swim-br:#bae6fd;
+  --bike:#15803d;--bike-lt:#dcfce7;--bike-br:#bbf7d0;
+  --brick:#9333ea;--brick-lt:#f3e8ff;--brick-br:#e9d5ff;
+  --str:#b45309;--str-lt:#fef3c7;--str-br:#fde68a;
+  --rest:#475569;--rest-lt:#f1f5f9;--rest-br:#e2e8f0;
+  --green:#16a34a;--green-lt:#dcfce7;
+  --red:#dc2626;--red-lt:#fee2e2;
+  --amber:#d97706;--amber-lt:#fef3c7;
+  --shadow:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.05);
+  --shadow-md:0 4px 12px rgba(0,0,0,.1);
+  --r:10px;--rlg:14px;
+}
+[data-theme="dark"]{
+  --bg:#0a0f1e;--surf:#111827;--surf2:#1e293b;--surf3:#334155;
+  --brd:#1e293b;--brd2:#334155;
+  --txt:#f8fafc;--txt2:#94a3b8;--txt3:#475569;
+  --run-lt:#431407;--run-br:#7c2d12;
+  --swim-lt:#0c1a2e;--swim-br:#075985;
+  --bike-lt:#052e16;--bike-br:#14532d;
+  --brick-lt:#2e1065;--brick-br:#6b21a8;
+  --str-lt:#451a03;--str-br:#78350f;
+  --rest-lt:#1e293b;--rest-br:#334155;
+  --accent-lt:#1e3a5f;--green-lt:#052e16;--red-lt:#450a0a;--amber-lt:#451a03;
+  --shadow:0 1px 3px rgba(0,0,0,.3);--shadow-md:0 4px 16px rgba(0,0,0,.4);
+}
+
+/* ═══ PC LAYOUT ═══════════════════════════════════════════════════════════ */
+.pc-app{
+  display:flex;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:var(--bg);
+  transition:background .2s,color .2s;
+  color:var(--txt);
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:220px;
+  flex-shrink:0;
+  height:100vh;
+  background:#0d1117;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border-right:1px solid #1a2332;
+  transition:background .2s;
+}
+[data-theme="dark"] .sidebar{background:#080c14;border-color:#0f172a}
+
+.sb-logo{padding:22px 18px 16px;border-bottom:1px solid #1a2332;flex-shrink:0}
+.sb-logo-ico{font-size:26px;display:block;margin-bottom:8px}
+.sb-logo-title{font-size:16px;font-weight:800;color:#f8fafc;letter-spacing:-.4px}
+.sb-logo-sub{font-size:10px;color:#334155;margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.sb-cd{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;color:#3b82f6;background:rgba(59,130,246,.12);padding:4px 10px;border-radius:20px;border:1px solid rgba(59,130,246,.2)}
+
+.sb-nav{flex:1;padding:10px;display:flex;flex-direction:column;gap:2px;overflow-y:auto}
+.sb-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:10px;
+  cursor:pointer;transition:all .15s;
+  color:#475569;font-size:13px;font-weight:600;
+  border:1px solid transparent;background:none;width:100%;text-align:left;
+}
+.sb-item:hover{background:rgba(255,255,255,.04);color:#94a3b8}
+.sb-item.active{background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(139,92,246,.12));color:#93c5fd;border-color:rgba(59,130,246,.2)}
+.sb-ico{font-size:16px;flex-shrink:0;width:20px;text-align:center}
+.sb-lbl{flex:1}
+.sb-key{font-size:9px;font-weight:700;background:rgba(255,255,255,.06);padding:2px 5px;border-radius:4px;color:#334155;border:1px solid #1e293b;font-family:monospace}
+.sb-divider{height:1px;background:#1a2332;margin:6px 0}
+
+.sb-bottom{padding:10px;flex-shrink:0;border-top:1px solid #1a2332;display:flex;flex-direction:column;gap:1px}
+.sb-btn{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:9px;cursor:pointer;font-size:12px;font-weight:600;color:#475569;background:none;border:none;width:100%;text-align:left;transition:all .15s}
+.sb-btn:hover{background:rgba(255,255,255,.04);color:#94a3b8}
+
+/* MAIN */
+.pc-main{
+  flex:1;
+  min-width:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  background:var(--bg);
+}
+
+/* TOP BAR */
+.pc-topbar{
+  height:52px;
+  flex-shrink:0;
+  background:var(--surf);
+  border-bottom:1px solid var(--brd);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 24px;
+  box-shadow:0 1px 0 var(--brd);
+}
+.pc-tb-title{font-size:15px;font-weight:700;color:var(--txt);flex:1}
+.pc-tb-actions{display:flex;gap:8px;align-items:center}
+.btn-new{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 18px;font-size:12px;font-weight:700;
+  border-radius:9px;border:none;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:#fff;cursor:pointer;transition:all .15s;
+  box-shadow:0 2px 8px rgba(37,99,235,.3);letter-spacing:-.1px;
+}
+.btn-new:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-new:active{transform:none}
+.tb-icon-btn{width:34px;height:34px;border-radius:9px;border:1.5px solid var(--brd);background:var(--surf);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;color:var(--txt2);flex-shrink:0;transition:all .15s}
+.tb-icon-btn:hover{background:var(--surf2)}
+
+/* SCROLL AREA */
+.pc-scroll{
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:20px 24px;
+  background:var(--bg);
+}
+.pc-scroll::-webkit-scrollbar{width:5px}
+.pc-scroll::-webkit-scrollbar-track{background:transparent}
+.pc-scroll::-webkit-scrollbar-thumb{background:var(--brd2);border-radius:3px}
+
+/* VIEWS */
+.view{display:none;width:100%;animation:fadeIn .18s ease}
+.view.active{display:block;width:100%}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* TWO/THREE COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;align-items:start}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;align-items:start}
+
+/* CARDS */
+.card{background:var(--surf);border-radius:var(--rlg);border:1px solid var(--brd);box-shadow:var(--shadow);overflow:hidden;width:100%;margin-bottom:14px}
+.cp{padding:18px 20px}
+.card-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:4px}
+.card-sub{font-size:11px;color:var(--txt3);margin-bottom:14px}
+
+/* SPLASH */
+.splash{position:fixed;inset:0;background:#0d1117;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .5s,visibility .5s}
+.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash-ico{font-size:52px;animation:pulse 1.5s infinite}
+.splash-title{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.5px}
+.splash-sub{font-size:13px;color:#64748b;font-weight:500}
+.splash-bar{width:200px;height:3px;background:#1e293b;border-radius:3px;overflow:hidden;margin-top:8px}
+.splash-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:3px;animation:load 1.8s ease-out forwards}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes load{0%{width:0}100%{width:100%}}
+
+/* TODAY CARD */
+.today-card{background:linear-gradient(135deg,#0d1117 0%,#1a1f35 60%,#0d1117 100%);color:#fff;border-radius:16px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden;border:1px solid #1e2d45}
+.today-card::before{content:'';position:absolute;top:-50px;right:-30px;width:180px;height:180px;background:rgba(59,130,246,.1);border-radius:50%}
+.today-card::after{content:'';position:absolute;bottom:-40px;left:20px;width:120px;height:120px;background:rgba(234,88,12,.07);border-radius:50%}
+.today-lbl{font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.6px;position:relative;z-index:1}
+.today-date{font-size:24px;font-weight:800;color:#fff;position:relative;z-index:1;margin:4px 0 14px;letter-spacing:-.5px}
+.today-sess{position:relative;z-index:1}
+.today-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:7px;text-transform:uppercase;letter-spacing:.3px;color:#fff}
+.today-name{font-size:17px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:4px}
+.today-meta{font-size:12px;color:#64748b}
+.today-actions{display:flex;gap:8px;margin-top:16px;position:relative;z-index:1}
+.today-btn{flex:1;padding:10px;font-size:12px;font-weight:700;border-radius:10px;border:none;cursor:pointer;transition:all .15s;letter-spacing:.1px}
+.today-btn.pri{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.today-btn.sec{background:rgba(255,255,255,.08);color:#94a3b8;border:1px solid rgba(255,255,255,.1)}
+.today-btn.done{background:#16a34a;color:#fff}
+.today-btn:hover{filter:brightness(1.08)}
+
+/* RINGS */
+.rings-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.ring-card{background:var(--surf);border:1px solid var(--brd);border-radius:var(--rlg);padding:16px 10px;text-align:center;box-shadow:var(--shadow)}
+.ring-wrap{position:relative;width:76px;height:76px;margin:0 auto 10px}
+.ring-svg{width:76px;height:76px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--brd);stroke-width:5}
+.ring-fill{fill:none;stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+.ring-val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--txt)}
+.ring-lbl{font-size:11px;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.4px}
+
+/* STREAK */
+.streak-card{background:linear-gradient(135deg,#92400e,#c2410c,#ea580c);color:#fff;border-radius:var(--rlg);padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-md)}
+.streak-ico{font-size:36px;line-height:1}
+.streak-val{font-size:30px;font-weight:800;line-height:1;letter-spacing:-.5px}
+.streak-lbl{font-size:11px;opacity:.85;font-weight:600;margin-top:3px}
+
+/* PR BANNER */
+.pr-banner{background:linear-gradient(135deg,#4c1d95,#1d4ed8);color:#fff;border-radius:var(--rlg);padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-md)}
+.pr-close{background:none;border:none;color:#fff;cursor:pointer;font-size:18px;opacity:.6;padding:0 4px}
+
+/* CALENDAR */
+.cal-header{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.cal-nav{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--brd);background:var(--surf);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;color:var(--txt2);flex-shrink:0;transition:all .15s}
+.cal-nav:hover{background:var(--surf2)}
+.cal-title-txt{flex:1;text-align:center;font-size:15px;font-weight:700;color:var(--txt)}
+.cal-day-names{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px}
+.cal-day-name{text-align:center;font-size:10px;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.4px;padding:6px 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-cell{
+  border-radius:10px;display:flex;flex-direction:column;
+  cursor:pointer;transition:all .12s;position:relative;
+  border:1.5px solid transparent;
+  min-height:90px;
+  padding:8px 10px;
+}
+.cal-cell:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.cal-cell.empty{opacity:0;pointer-events:none;min-height:90px}
+.cal-cell.preseason{background:var(--surf2);border-color:var(--brd)}
+.cal-cell.planned{background:var(--surf2);border-color:var(--brd)}
+.cal-cell.future{background:var(--surf2);border-color:var(--brd);opacity:.55}
+.cal-cell.done{border-color:transparent}
+.cal-cell.missed{background:var(--red-lt);border-color:#fecaca}
+[data-theme="dark"] .cal-cell.missed{border-color:#7f1d1d}
+.cal-cell.today{box-shadow:0 0 0 2px #3b82f6,0 0 0 4px rgba(59,130,246,.2)!important}
+.cal-num{font-size:12px;font-weight:700;color:var(--txt2);margin-bottom:3px;line-height:1}
+.cal-cell.today .cal-num{color:#3b82f6;font-size:13px;font-weight:800}
+.cal-ico{font-size:16px;line-height:1;margin-bottom:4px}
+.cal-plan-txt{font-size:10px;font-weight:600;color:var(--txt3);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cal-cell.done .cal-plan-txt{color:rgba(255,255,255,.7)}
+.cal-sess-hr{font-size:10px;font-weight:700;margin-top:auto;padding-top:4px;opacity:.8}
+.cal-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:auto}
+
+/* TOOLTIP */
+.cal-tip{display:none;position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);background:#0d1117;color:#f8fafc;font-size:11px;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap;z-index:200;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.4);border:1px solid #1e293b;min-width:100px;text-align:center}
+.cal-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#0d1117}
+.cal-cell:hover .cal-tip{display:block}
+
+/* WEEK BARS */
+.wk-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--brd)}
+.wk-num{font-size:10px;font-weight:700;color:var(--txt3);min-width:30px}
+.wk-pill{font-size:8px;font-weight:700;padding:2px 7px;border-radius:10px;color:#fff;text-transform:uppercase;letter-spacing:.3px;flex-shrink:0}
+.wk-prog{flex:1;height:5px;background:var(--brd);border-radius:3px;overflow:hidden}
+.wk-prog-fill{height:100%;border-radius:3px;transition:width .5s ease}
+.wk-pct{font-size:10px;font-weight:700;color:var(--txt3);min-width:30px;text-align:right}
+
+/* SUMMARY BAR */
+.sum-bar{background:var(--surf);border-radius:var(--rlg);padding:14px;margin-bottom:14px;border:1px solid var(--brd);box-shadow:var(--shadow)}
+.sum-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.sm{border-radius:10px;padding:12px 6px;text-align:center}
+.sm-val{font-size:18px;font-weight:700;line-height:1.2}
+.sm-lbl{font-size:9px;font-weight:700;margin-top:3px;text-transform:uppercase;letter-spacing:.4px;opacity:.7}
+.sm.r{background:var(--run-lt);color:var(--run)}.sm.s{background:var(--swim-lt);color:var(--swim)}
+.sm.b{background:var(--bike-lt);color:var(--bike)}.sm.br{background:var(--brick-lt);color:var(--brick)}
+.sm.k{background:#fce7f3;color:#be185d}
+[data-theme="dark"] .sm.k{background:#4a044e;color:#f0abfc}
+
+/* LOG FILTERS */
+.log-filters{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.lfil{padding:5px 13px;font-size:11px;font-weight:700;border-radius:20px;border:1.5px solid var(--brd);background:var(--surf);color:var(--txt3);cursor:pointer;transition:all .15s}
+.lfil.active{background:#0d1117;color:#fff;border-color:#0d1117}
+[data-theme="dark"] .lfil.active{background:#f1f5f9;color:#0d1117}
+.search-wrap{position:relative;margin-bottom:10px}
+.search-inp{width:100%;padding:9px 12px 9px 36px;font-size:13px;border:1.5px solid var(--brd);border-radius:10px;background:var(--surf);color:var(--txt);outline:none;transition:border-color .15s}
+.search-inp:focus{border-color:var(--accent)}
+.search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}
+.log-tools{display:flex;gap:6px;margin-bottom:12px}
+.tool-btn{flex:1;padding:8px;font-size:11px;font-weight:700;border-radius:9px;border:1.5px solid var(--brd);background:var(--surf);color:var(--txt2);cursor:pointer;transition:all .15s;text-align:center}
+.tool-btn:hover{background:var(--surf2)}
+.view-tog{display:flex;gap:4px}
+.vtbtn{padding:5px 10px;font-size:11px;font-weight:700;border-radius:7px;border:1.5px solid var(--brd);background:var(--surf2);color:var(--txt3);cursor:pointer;transition:all .15s}
+.vtbtn.active{background:#0d1117;color:#fff;border-color:#0d1117}
+[data-theme="dark"] .vtbtn.active{background:#f1f5f9;color:#0d1117}
+
+/* SESSION CARDS */
+.scard{border-radius:var(--rlg);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid transparent;transition:box-shadow .15s,transform .15s}
+.scard:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.sc-top{padding:14px}
+.sc-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.sc-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px;color:#fff}
+.sc-title{font-size:15px;font-weight:700;color:var(--txt)}
+.sc-meta{font-size:11px;color:var(--txt2);margin-top:2px;font-weight:500}
+.sc-ph{font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;color:#fff;white-space:nowrap}
+.mc-grid{display:grid;gap:6px;margin-bottom:10px}
+.mc4{grid-template-columns:repeat(4,1fr)}.mc3{grid-template-columns:repeat(3,1fr)}.mc2{grid-template-columns:repeat(2,1fr)}
+.mc{border-radius:8px;padding:9px 6px;text-align:center;border:1px solid}
+.mc-val{font-size:15px;font-weight:700;line-height:1.2}
+.mc-lbl{font-size:9px;font-weight:700;margin-top:2px;text-transform:uppercase;letter-spacing:.3px;opacity:.6}
+.zbar-sc{display:flex;border-radius:6px;overflow:hidden;height:16px;margin-bottom:5px}
+.zleg-sc{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.zl-item{display:flex;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--txt2)}
+.zdot{width:7px;height:7px;border-radius:50%}
+.sc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+.sc-tag{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px}
+.sc-note{font-size:12px;line-height:1.6;padding:9px 11px;border-radius:8px;border-left:3px solid}
+.sc-footer{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-top:1px solid}
+.sc-stars{display:flex;gap:2px}
+.sc-star{font-size:14px;cursor:pointer;color:var(--brd2);transition:color .1s;line-height:1}
+.sc-star.on{color:#f59e0b}
+.btn-del{font-size:10px;font-weight:700;color:var(--red);background:none;border:none;cursor:pointer;padding:3px 7px;border-radius:6px}
+.btn-del:hover{background:var(--red-lt)}
+
+/* LOG TABLE */
+.log-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.log-tbl th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--brd);background:var(--surf2);white-space:nowrap}
+.log-tbl td{padding:10px 16px;border-bottom:1px solid var(--brd);color:var(--txt);vertical-align:middle}
+.log-tbl tr:hover td{background:var(--surf2);cursor:pointer}
+.lbadge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;color:#fff;white-space:nowrap}
+.lzbar{width:60px;height:7px;border-radius:4px;overflow:hidden;display:flex}
+
+/* CHARTS */
+.chart-card{background:var(--surf);border-radius:var(--rlg);padding:18px 20px;margin-bottom:14px;border:1px solid var(--brd);box-shadow:var(--shadow)}
+.chart-tabs{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap}
+.ctab{padding:5px 12px;font-size:11px;font-weight:600;border-radius:20px;border:1.5px solid var(--brd);background:var(--surf2);color:var(--txt3);cursor:pointer;transition:all .15s}
+.ctab.active{background:#3b82f6;color:#fff;border-color:#3b82f6}
+.chart-wrap{position:relative;height:220px;margin-bottom:8px}
+.chart-empty{height:220px;display:flex;align-items:center;justify-content:center;color:var(--txt3);font-size:12px;background:var(--surf2);border-radius:8px;flex-direction:column;gap:8px}
+.chart-legend{display:flex;gap:12px;flex-wrap:wrap}
+.cl-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--txt2);font-weight:500}
+.cl-dot{width:8px;height:8px;border-radius:50%}
+
+/* WEEKLY */
+.wk-nav{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.wk-nav-btn{width:34px;height:34px;border-radius:9px;border:1.5px solid var(--brd);background:var(--surf);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;color:var(--txt2);transition:all .15s}
+.wk-nav-btn:hover{background:var(--surf2)}
+.wk-nav-title{flex:1;text-align:center;font-size:14px;font-weight:700;color:var(--txt)}
+.wk-days-row{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:16px}
+.wk-day-cell{border-radius:12px;padding:12px 8px 10px;text-align:center;border:1.5px solid var(--brd);background:var(--surf2);min-height:100px;display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:all .12s}
+.wk-day-cell:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.wk-day-cell.has-sess{border-color:transparent}
+.wk-day-cell.missed-cell{background:var(--red-lt);border-color:#fecaca}
+.wkd-name{font-size:10px;font-weight:700;color:var(--txt3);text-transform:uppercase;margin-bottom:6px}
+.wkd-ico{font-size:22px;margin-bottom:5px;line-height:1}
+.wkd-lbl{font-size:10px;font-weight:600;color:var(--txt2);line-height:1.3;text-align:center}
+.wk-stats4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.wks{background:var(--surf2);border-radius:12px;padding:14px;text-align:center}
+.wks-val{font-size:22px;font-weight:700;color:var(--txt)}
+.wks-lbl{font-size:10px;color:var(--txt3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;font-weight:600}
+.feel-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.feel-lbl{font-size:11px;font-weight:600;color:var(--txt2);min-width:76px}
+.feel-stars{display:flex;gap:3px}
+.feel-star{font-size:20px;cursor:pointer;color:var(--brd2);line-height:1;transition:color .1s}
+.feel-star.on{color:#f59e0b}
+.wk-note-inp{width:100%;font-size:13px;padding:10px 12px;border:1.5px solid var(--brd);border-radius:10px;background:var(--surf);color:var(--txt);resize:none;outline:none;margin-bottom:10px}
+.wk-note-inp:focus{border-color:var(--accent)}
+.btn-wk-save{width:100%;padding:11px;font-size:13px;font-weight:700;background:#0d1117;color:#fff;border:none;border-radius:10px;cursor:pointer;transition:all .15s}
+.btn-wk-save:hover{filter:brightness(1.2)}
+[data-theme="dark"] .btn-wk-save{background:#f1f5f9;color:#0d1117}
+.z2-warn{background:var(--amber-lt);color:var(--amber);border:1px solid #fde68a;border-radius:8px;padding:8px 12px;font-size:12px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+[data-theme="dark"] .z2-warn{border-color:#78350f}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;display:flex;align-items:center;justify-content:center}
+.modal{background:var(--surf);border-radius:18px;padding:24px;width:90%;max-width:720px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+[data-theme="dark"] .modal{box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.modal-title{font-size:18px;font-weight:700;color:var(--txt);margin-bottom:4px}
+.modal-date{font-size:12px;color:var(--txt3);margin-bottom:18px}
+
+/* PLAN BLOCK */
+.plan-block{background:var(--surf2);border-radius:12px;padding:14px;border:1px solid var(--brd);margin-bottom:16px}
+.plan-block-title{font-size:10px;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.plan-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--brd)}
+.plan-item:last-child{border-bottom:none;padding-bottom:0}
+.plan-item-ico{font-size:18px;flex-shrink:0;margin-top:1px}
+.plan-item-name{font-size:13px;font-weight:600;color:var(--txt);line-height:1.3}
+.plan-item-meta{font-size:11px;color:var(--txt3);margin-top:2px}
+
+/* FORM ELEMENTS */
+.modal-form-title{font-size:11px;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.modal-form-title::after{content:'';flex:1;height:1px;background:var(--brd)}
+.mg{display:grid;gap:10px}.mg2{grid-template-columns:1fr 1fr}.mg3{grid-template-columns:1fr 1fr 1fr}.mg4{grid-template-columns:1fr 1fr 1fr 1fr}
+.mfield{display:flex;flex-direction:column;gap:4px}
+.mflbl{font-size:11px;font-weight:600;color:var(--txt2)}
+.miw{position:relative;display:flex;align-items:center}
+.miw .mfi{padding-right:36px}
+.miu{position:absolute;right:10px;font-size:10px;font-weight:700;color:var(--txt3);pointer-events:none;text-transform:uppercase}
+.mfi{font-size:13px;padding:9px 12px;border:1.5px solid var(--brd);border-radius:9px;background:var(--surf);color:var(--txt);outline:none;width:100%;transition:border-color .15s}
+.mfi:focus{border-color:var(--accent)}
+.mfi::placeholder{color:var(--txt3)}
+textarea.mfi{resize:none}
+.chips-row{display:flex;gap:5px;flex-wrap:wrap}
+.mchip{padding:5px 11px;font-size:11px;font-weight:600;border-radius:20px;border:1.5px solid var(--brd);background:var(--surf2);color:var(--txt2);cursor:pointer;transition:all .12s}
+.stars-row{display:flex;gap:4px}
+.mstar{font-size:22px;cursor:pointer;color:var(--brd2);transition:color .1s;line-height:1}
+.mstar.on{color:#f59e0b}
+.zrow4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:6px}
+.zf4{display:flex;flex-direction:column;align-items:center;gap:4px}
+.zlbl4{font-size:9px;font-weight:700;padding:3px 8px;border-radius:10px;color:#fff;text-transform:uppercase;letter-spacing:.3px}
+.zin4{font-size:14px;font-weight:700;padding:8px 4px;border:1.5px solid var(--brd);border-radius:8px;background:var(--surf);color:var(--txt);text-align:center;width:100%;outline:none}
+.zin4:focus{border-color:var(--accent)}
+.zbar4{height:14px;border-radius:6px;overflow:hidden;display:flex;background:var(--brd);margin-bottom:3px}
+.ztot4{font-size:10px;font-weight:600;text-align:right;margin-bottom:8px}
+.modal-footer{display:flex;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--brd)}
+.btn-primary{flex:1;padding:12px;font-size:13px;font-weight:700;border:none;border-radius:10px;cursor:pointer;color:#fff;transition:all .15s}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-secondary{padding:12px 18px;font-size:12px;font-weight:600;border:1.5px solid var(--brd);border-radius:10px;background:var(--surf);color:var(--txt2);cursor:pointer;transition:all .15s}
+.btn-secondary:hover{background:var(--surf2)}
+.btn-garmin-sm{padding:10px 14px;font-size:11px;font-weight:700;border:1.5px solid var(--bike-br);border-radius:10px;background:var(--bike-lt);color:#15803d;cursor:pointer;display:flex;align-items:center;gap:5px}
+.m-ext{margin-bottom:8px;display:none}
+.m-ext.show{display:block}
+.exf{background:var(--surf2);border:1px solid var(--brd);border-radius:9px;padding:9px 12px}
+.exf label{font-size:10px;font-weight:700;color:var(--txt2);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.3px}
+.exf input{font-size:12px;padding:6px 9px;border:1px solid var(--brd);border-radius:7px;background:var(--surf);color:var(--txt);width:100%;outline:none}
+.exf input:focus{border-color:var(--accent)}
+
+/* DRAG ZONE */
+.drag-zone{position:fixed;inset:0;z-index:9000;background:rgba(37,99,235,.1);backdrop-filter:blur(6px);border:2.5px dashed #3b82f6;border-radius:20px;margin:12px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;pointer-events:none}
+.drag-zone.show{display:flex}
+.dz-ico{font-size:52px}
+.dz-txt{font-size:20px;font-weight:800;color:#3b82f6}
+.dz-sub{font-size:13px;color:#64748b;font-weight:600}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:3rem 1rem;color:var(--txt3)}
+.empty-ico{font-size:40px;margin-bottom:10px}
+.empty-txt{font-size:13px;font-weight:500}
+
+@media(max-width:900px){
+  .sidebar{width:180px}
+  .two-col{grid-template-columns:1fr}
+  .three-col{grid-template-columns:1fr 1fr}
+}
+
+/* ═══ TYPOGRAPHY & READABILITY OVERRIDES ═══════════════════════════════════ */
+
+/* Base font size bump */
+body { font-size: 14px; line-height: 1.5; }
+
+/* SIDEBAR readable */
+.sb-logo-title { font-size: 17px !important; letter-spacing: -.3px; }
+.sb-logo-sub { font-size: 11px !important; color: #475569 !important; }
+.sb-cd { font-size: 12px !important; }
+.sb-item { font-size: 13px !important; padding: 11px 14px !important; }
+.sb-ico { font-size: 17px !important; }
+.sb-key { font-size: 10px !important; color: #475569 !important; background: rgba(255,255,255,.08) !important; }
+.sb-btn { font-size: 12px !important; padding: 10px 14px !important; color: #64748b !important; }
+.sb-btn:hover { color: #94a3b8 !important; }
+
+/* TOP BAR */
+.pc-tb-title { font-size: 16px !important; font-weight: 700 !important; letter-spacing: -.3px; }
+.btn-new { font-size: 13px !important; padding: 8px 20px !important; }
+
+/* CARDS */
+.card-title { font-size: 15px !important; font-weight: 700 !important; color: var(--txt) !important; margin-bottom: 4px !important; }
+.card-sub { font-size: 12px !important; color: var(--txt3) !important; margin-bottom: 14px !important; }
+.cp { padding: 20px 22px !important; }
+
+/* TODAY CARD */
+.today-lbl { font-size: 11px !important; color: #64748b !important; letter-spacing: .6px; }
+.today-date { font-size: 22px !important; font-weight: 800 !important; margin: 6px 0 16px !important; }
+.today-badge { font-size: 11px !important; padding: 4px 12px !important; }
+.today-name { font-size: 17px !important; font-weight: 700 !important; line-height: 1.4 !important; }
+.today-meta { font-size: 12px !important; color: #64748b !important; margin-top: 4px !important; }
+.today-btn { font-size: 13px !important; padding: 11px !important; font-weight: 700 !important; }
+
+/* RINGS */
+.ring-val { font-size: 14px !important; font-weight: 800 !important; }
+.ring-lbl { font-size: 11px !important; font-weight: 700 !important; margin-top: 4px !important; color: var(--txt2) !important; }
+.ring-card { padding: 18px 12px !important; }
+
+/* STREAK */
+.streak-val { font-size: 32px !important; font-weight: 800 !important; letter-spacing: -.5px; }
+.streak-lbl { font-size: 12px !important; font-weight: 600 !important; }
+.streak-ico { font-size: 38px !important; }
+
+/* SUMMARY BAR */
+.sm-val { font-size: 20px !important; font-weight: 800 !important; letter-spacing: -.3px; }
+.sm-lbl { font-size: 10px !important; font-weight: 700 !important; margin-top: 4px !important; letter-spacing: .5px; }
+.sm { padding: 13px 6px !important; }
+
+/* CALENDAR */
+.cal-title-txt { font-size: 16px !important; font-weight: 700 !important; }
+.cal-day-name { font-size: 11px !important; font-weight: 700 !important; color: var(--txt2) !important; letter-spacing: .5px; padding: 8px 0 !important; }
+.cal-num { font-size: 13px !important; font-weight: 700 !important; }
+.cal-cell.today .cal-num { font-size: 14px !important; font-weight: 800 !important; }
+.cal-ico { font-size: 18px !important; margin-bottom: 5px !important; }
+.cal-plan-txt { font-size: 11px !important; font-weight: 600 !important; color: var(--txt2) !important; line-height: 1.35 !important; }
+.cal-cell.done .cal-plan-txt { color: rgba(255,255,255,.85) !important; }
+.cal-sess-hr { font-size: 11px !important; font-weight: 700 !important; }
+.cal-cell { min-height: 100px !important; padding: 10px 11px !important; }
+.cal-tip { font-size: 12px !important; padding: 7px 12px !important; }
+
+/* WEEK BARS in planner */
+.wk-num { font-size: 11px !important; font-weight: 700 !important; color: var(--txt2) !important; min-width: 36px !important; }
+.wk-pill { font-size: 10px !important; padding: 3px 9px !important; }
+.wk-pct { font-size: 11px !important; font-weight: 700 !important; color: var(--txt2) !important; }
+.wk-row { padding: 7px 0 !important; }
+
+/* LOG FILTERS */
+.lfil { font-size: 12px !important; padding: 6px 15px !important; font-weight: 700 !important; }
+.search-inp { font-size: 13px !important; padding: 10px 14px 10px 38px !important; }
+.tool-btn { font-size: 12px !important; padding: 9px !important; font-weight: 700 !important; }
+.vtbtn { font-size: 12px !important; padding: 6px 12px !important; font-weight: 700 !important; }
+
+/* SESSION CARDS */
+.sc-badge { font-size: 11px !important; padding: 4px 11px !important; letter-spacing: .2px; }
+.sc-title { font-size: 16px !important; font-weight: 700 !important; }
+.sc-meta { font-size: 12px !important; margin-top: 3px !important; }
+.sc-ph { font-size: 10px !important; padding: 4px 10px !important; }
+.mc-val { font-size: 17px !important; font-weight: 800 !important; }
+.mc-lbl { font-size: 10px !important; font-weight: 700 !important; margin-top: 3px !important; letter-spacing: .3px; }
+.mc { padding: 11px 8px !important; }
+.zleg-sc { gap: 12px !important; }
+.zl-item { font-size: 12px !important; font-weight: 600 !important; }
+.sc-note { font-size: 13px !important; line-height: 1.6 !important; padding: 10px 13px !important; }
+.sc-tag { font-size: 11px !important; padding: 4px 10px !important; }
+.sc-star { font-size: 16px !important; }
+.btn-del { font-size: 11px !important; }
+.sc-top { padding: 16px !important; }
+.sc-footer { padding: 10px 16px !important; }
+
+/* LOG TABLE */
+.log-tbl th { font-size: 11px !important; padding: 12px 16px !important; letter-spacing: .5px; color: var(--txt2) !important; }
+.log-tbl td { font-size: 13px !important; padding: 12px 16px !important; }
+.lbadge { font-size: 11px !important; padding: 4px 10px !important; }
+
+/* CHARTS */
+.chart-card { padding: 20px 22px !important; }
+.ctab { font-size: 12px !important; padding: 6px 14px !important; font-weight: 700 !important; }
+.cl-item { font-size: 12px !important; font-weight: 600 !important; }
+.chart-wrap { height: 230px !important; }
+
+/* WEEKLY */
+.wk-nav-title { font-size: 15px !important; font-weight: 700 !important; }
+.wkd-name { font-size: 11px !important; font-weight: 700 !important; margin-bottom: 8px !important; color: var(--txt2) !important; }
+.wkd-ico { font-size: 24px !important; margin-bottom: 6px !important; }
+.wkd-lbl { font-size: 11px !important; font-weight: 600 !important; color: var(--txt) !important; }
+.wk-day-cell { min-height: 105px !important; padding: 12px 10px !important; }
+.wks-val { font-size: 24px !important; font-weight: 800 !important; letter-spacing: -.3px; }
+.wks-lbl { font-size: 11px !important; font-weight: 700 !important; margin-top: 5px !important; color: var(--txt2) !important; }
+.wks { padding: 16px !important; }
+.feel-lbl { font-size: 13px !important; font-weight: 600 !important; color: var(--txt) !important; min-width: 86px !important; }
+.feel-star { font-size: 22px !important; }
+.wk-note-inp { font-size: 13px !important; padding: 11px 13px !important; }
+.btn-wk-save { font-size: 13px !important; padding: 12px !important; font-weight: 700 !important; }
+.z2-warn { font-size: 13px !important; padding: 10px 14px !important; }
+
+/* MODAL */
+.modal { padding: 28px !important; max-width: 740px !important; }
+.modal-title { font-size: 20px !important; font-weight: 800 !important; margin-bottom: 4px !important; }
+.modal-date { font-size: 13px !important; margin-bottom: 20px !important; color: var(--txt3) !important; }
+.plan-block-title { font-size: 11px !important; font-weight: 700 !important; color: var(--txt2) !important; letter-spacing: .5px; margin-bottom: 12px !important; }
+.plan-item-ico { font-size: 22px !important; }
+.plan-item-name { font-size: 14px !important; font-weight: 700 !important; }
+.plan-item-meta { font-size: 12px !important; color: var(--txt3) !important; }
+.modal-form-title { font-size: 11px !important; font-weight: 700 !important; letter-spacing: .5px; margin-bottom: 12px !important; color: var(--txt2) !important; }
+.mflbl { font-size: 12px !important; font-weight: 700 !important; color: var(--txt2) !important; margin-bottom: 5px !important; }
+.mfi { font-size: 14px !important; padding: 10px 13px !important; border-radius: 9px !important; }
+.miu { font-size: 11px !important; font-weight: 700 !important; right: 11px !important; }
+.mchip { font-size: 12px !important; padding: 6px 13px !important; font-weight: 600 !important; }
+.mstar { font-size: 24px !important; }
+.zin4 { font-size: 16px !important; font-weight: 800 !important; padding: 10px 6px !important; }
+.zlbl4 { font-size: 10px !important; padding: 3px 9px !important; font-weight: 700 !important; }
+.ztot4 { font-size: 11px !important; font-weight: 700 !important; margin-bottom: 10px !important; }
+.btn-primary { font-size: 14px !important; padding: 13px !important; font-weight: 700 !important; }
+.btn-secondary { font-size: 13px !important; padding: 13px 20px !important; }
+.btn-garmin-sm { font-size: 12px !important; padding: 12px 16px !important; }
+.exf label { font-size: 11px !important; font-weight: 700 !important; margin-bottom: 5px !important; }
+.exf input { font-size: 13px !important; padding: 7px 10px !important; }
+#modal-type-btns button { font-size: 12px !important; padding: 9px 15px !important; font-weight: 700 !important; }
+#modal-sub-wrap .mflbl { font-size: 12px !important; }
+
+/* COLORS - improve contrast */
+.cal-cell.planned .cal-plan-txt { color: var(--txt2) !important; }
+.cal-cell.future .cal-plan-txt { color: var(--txt3) !important; }
+.cal-cell.missed { border-color: #fca5a5 !important; }
+[data-theme="dark"] .cal-cell.missed .cal-num { color: #fca5a5 !important; }
+
+/* Scrollbar */
+.pc-scroll::-webkit-scrollbar { width: 6px; }
+.pc-scroll::-webkit-scrollbar-thumb { background: var(--brd2); border-radius: 4px; }
+
+/* Section headers inside views */
+.section-header {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--txt) !important;
+  margin-bottom: 10px !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Better empty state */
+.empty-ico { font-size: 44px !important; margin-bottom: 12px !important; }
+.empty-txt { font-size: 14px !important; font-weight: 600 !important; color: var(--txt2) !important; }
+
+/* Countdown in topbar */
+#sb-cd { font-size: 12px !important; font-weight: 700 !important; }
+
+/* Planner week bars */
+.wk-prog { height: 6px !important; border-radius: 3px !important; }
+.wk-prog-fill { border-radius: 3px !important; }
+
+
+/* ═══ CALENDAR BIGGER ═══════════════════════════════════════════════════════ */
+
+/* Calendar cells — much bigger */
+.cal-cell {
+  min-height: 120px !important;
+  padding: 11px 13px !important;
+  border-radius: 11px !important;
+}
+.cal-num {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  margin-bottom: 5px !important;
+}
+.cal-cell.today .cal-num {
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+.cal-ico {
+  font-size: 22px !important;
+  margin-bottom: 6px !important;
+  line-height: 1 !important;
+}
+.cal-plan-txt {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+.cal-sess-hr {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  margin-top: auto !important;
+  padding-top: 5px !important;
+}
+
+/* ═══ ADJUST PLANNER LAYOUT — calendar bigger, right panel scrollable ═══ */
+/* Planner right panel narrower, more room for calendar */
+#view-planner > div {
+  grid-template-columns: 1fr 260px !important;
+}
+
+/* ═══ SIDEBAR SLIGHTLY BIGGER ═══════════════════════════════════════════════ */
+.sidebar { width: 230px !important; }
+.sb-logo-title { font-size: 18px !important; }
+.sb-logo-sub { font-size: 12px !important; }
+.sb-cd { font-size: 13px !important; }
+.sb-item { font-size: 14px !important; padding: 12px 14px !important; }
+.sb-ico { font-size: 18px !important; }
+.sb-btn { font-size: 13px !important; padding: 11px 14px !important; }
+
+/* ═══ TOPBAR ════════════════════════════════════════════════════════════════ */
+.pc-topbar { height: 56px !important; }
+.pc-tb-title { font-size: 17px !important; }
+.btn-new { font-size: 14px !important; padding: 9px 22px !important; }
+
+/* ═══ TODAY CARD ════════════════════════════════════════════════════════════ */
+.today-lbl { font-size: 12px !important; }
+.today-date { font-size: 26px !important; font-weight: 900 !important; }
+.today-badge { font-size: 12px !important; padding: 5px 13px !important; }
+.today-name { font-size: 19px !important; }
+.today-meta { font-size: 13px !important; }
+.today-btn { font-size: 14px !important; padding: 12px !important; }
+
+/* ═══ RINGS ═════════════════════════════════════════════════════════════════ */
+.ring-wrap { width: 86px !important; height: 86px !important; }
+.ring-svg { width: 86px !important; height: 86px !important; }
+.ring-val { font-size: 16px !important; font-weight: 800 !important; }
+.ring-lbl { font-size: 12px !important; }
+.ring-card { padding: 20px 14px !important; }
+
+/* ═══ STREAK ════════════════════════════════════════════════════════════════ */
+.streak-val { font-size: 34px !important; }
+.streak-lbl { font-size: 13px !important; }
+.streak-ico { font-size: 40px !important; }
+
+/* ═══ SUMMARY BAR ═══════════════════════════════════════════════════════════ */
+.sm-val { font-size: 22px !important; font-weight: 800 !important; }
+.sm-lbl { font-size: 11px !important; }
+.sm { padding: 14px 8px !important; }
+
+/* ═══ SESSION CARDS ═════════════════════════════════════════════════════════ */
+.sc-badge { font-size: 12px !important; padding: 5px 12px !important; }
+.sc-title { font-size: 17px !important; }
+.sc-meta { font-size: 13px !important; }
+.mc-val { font-size: 18px !important; font-weight: 800 !important; }
+.mc-lbl { font-size: 11px !important; }
+.mc { padding: 12px 8px !important; }
+.sc-note { font-size: 14px !important; }
+.sc-tag { font-size: 12px !important; padding: 5px 11px !important; }
+.sc-star { font-size: 17px !important; }
+
+/* ═══ LOG FILTERS ═══════════════════════════════════════════════════════════ */
+.lfil { font-size: 13px !important; padding: 7px 16px !important; }
+.search-inp { font-size: 14px !important; padding: 11px 14px 11px 40px !important; }
+.tool-btn { font-size: 13px !important; padding: 10px !important; }
+
+/* ═══ LOG TABLE ═════════════════════════════════════════════════════════════ */
+.log-tbl th { font-size: 12px !important; padding: 13px 18px !important; }
+.log-tbl td { font-size: 14px !important; padding: 13px 18px !important; }
+.lbadge { font-size: 12px !important; padding: 5px 11px !important; }
+.lzbar { width: 70px !important; height: 8px !important; }
+
+/* ═══ CHARTS ════════════════════════════════════════════════════════════════ */
+.ctab { font-size: 13px !important; padding: 7px 16px !important; }
+.cl-item { font-size: 13px !important; }
+.cl-dot { width: 10px !important; height: 10px !important; }
+.chart-wrap { height: 240px !important; }
+.card-title { font-size: 16px !important; }
+.card-sub { font-size: 13px !important; }
+
+/* ═══ WEEKLY ════════════════════════════════════════════════════════════════ */
+.wk-nav-title { font-size: 16px !important; }
+.wk-nav-btn { width: 38px !important; height: 38px !important; font-size: 17px !important; }
+.wkd-name { font-size: 12px !important; margin-bottom: 8px !important; }
+.wkd-ico { font-size: 26px !important; margin-bottom: 7px !important; }
+.wkd-lbl { font-size: 12px !important; }
+.wk-day-cell { min-height: 110px !important; padding: 14px 10px !important; }
+.wks-val { font-size: 26px !important; font-weight: 800 !important; }
+.wks-lbl { font-size: 12px !important; }
+.wks { padding: 18px !important; }
+.feel-lbl { font-size: 14px !important; }
+.feel-star { font-size: 24px !important; }
+.wk-note-inp { font-size: 14px !important; padding: 12px !important; }
+.btn-wk-save { font-size: 14px !important; padding: 13px !important; }
+
+/* ═══ MODAL ═════════════════════════════════════════════════════════════════ */
+.modal-title { font-size: 22px !important; }
+.modal-date { font-size: 14px !important; }
+.plan-item-ico { font-size: 24px !important; }
+.plan-item-name { font-size: 15px !important; }
+.plan-item-meta { font-size: 13px !important; }
+.mflbl { font-size: 13px !important; }
+.mfi { font-size: 14px !important; padding: 11px 14px !important; }
+.mchip { font-size: 13px !important; padding: 7px 14px !important; }
+.mstar { font-size: 26px !important; }
+.zin4 { font-size: 17px !important; font-weight: 800 !important; }
+.zlbl4 { font-size: 11px !important; padding: 4px 10px !important; }
+.btn-primary { font-size: 15px !important; padding: 14px !important; }
+.btn-secondary { font-size: 13px !important; }
+.btn-garmin-sm { font-size: 13px !important; }
+#modal-type-btns button { font-size: 13px !important; padding: 10px 17px !important; }
+
+/* ═══ WEEK PROGRESS BARS ════════════════════════════════════════════════════ */
+.wk-num { font-size: 12px !important; min-width: 38px !important; }
+.wk-pill { font-size: 10px !important; padding: 3px 10px !important; }
+.wk-pct { font-size: 12px !important; }
+.wk-prog { height: 7px !important; }
+.wk-row { padding: 8px 0 !important; }
+
+/* ═══ PLANNER RIGHT PANEL TEXT ══════════════════════════════════════════════ */
+/* Current week card inside right panel */
+#view-planner div[style*="22px"] { font-size: 26px !important; }
+
+
+/* ═══ CALENDAR SPORT COLORS ═════════════════════════════════════════════════ */
+
+/* Each sport type gets its own rich color */
+.cal-cell.done-run   { background: linear-gradient(135deg, #fff7ed, #ffedd5) !important; border-color: #f97316 !important; border-width: 2px !important; }
+.cal-cell.done-swim  { background: linear-gradient(135deg, #e0f2fe, #bae6fd) !important; border-color: #0284c7 !important; border-width: 2px !important; }
+.cal-cell.done-bike  { background: linear-gradient(135deg, #dcfce7, #bbf7d0) !important; border-color: #16a34a !important; border-width: 2px !important; }
+.cal-cell.done-brick { background: linear-gradient(135deg, #f3e8ff, #e9d5ff) !important; border-color: #9333ea !important; border-width: 2px !important; }
+.cal-cell.done-str   { background: linear-gradient(135deg, #fef9c3, #fef08a) !important; border-color: #ca8a04 !important; border-width: 2px !important; }
+.cal-cell.done-rest  { background: linear-gradient(135deg, #f1f5f9, #e2e8f0) !important; border-color: #64748b !important; border-width: 2px !important; }
+
+[data-theme="dark"] .cal-cell.done-run   { background: linear-gradient(135deg, #431407, #7c2d12) !important; border-color: #f97316 !important; }
+[data-theme="dark"] .cal-cell.done-swim  { background: linear-gradient(135deg, #0c1a2e, #075985) !important; border-color: #38bdf8 !important; }
+[data-theme="dark"] .cal-cell.done-bike  { background: linear-gradient(135deg, #052e16, #14532d) !important; border-color: #4ade80 !important; }
+[data-theme="dark"] .cal-cell.done-brick { background: linear-gradient(135deg, #2e1065, #6b21a8) !important; border-color: #c084fc !important; }
+[data-theme="dark"] .cal-cell.done-str   { background: linear-gradient(135deg, #451a03, #78350f) !important; border-color: #fbbf24 !important; }
+[data-theme="dark"] .cal-cell.done-rest  { background: linear-gradient(135deg, #1e293b, #334155) !important; border-color: #94a3b8 !important; }
+
+/* Planned cells — subtle sport color hint */
+.cal-cell.plan-run   { background: #fff7ed !important; border-color: #fed7aa !important; }
+.cal-cell.plan-swim  { background: #f0f9ff !important; border-color: #bae6fd !important; }
+.cal-cell.plan-bike  { background: #f0fdf4 !important; border-color: #bbf7d0 !important; }
+.cal-cell.plan-brick { background: #faf5ff !important; border-color: #e9d5ff !important; }
+.cal-cell.plan-str   { background: #fefce8 !important; border-color: #fde68a !important; }
+.cal-cell.plan-rest  { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+
+[data-theme="dark"] .cal-cell.plan-run   { background: rgba(249,115,22,.08) !important; border-color: rgba(249,115,22,.25) !important; }
+[data-theme="dark"] .cal-cell.plan-swim  { background: rgba(2,132,199,.08) !important; border-color: rgba(2,132,199,.25) !important; }
+[data-theme="dark"] .cal-cell.plan-bike  { background: rgba(22,163,74,.08) !important; border-color: rgba(22,163,74,.25) !important; }
+[data-theme="dark"] .cal-cell.plan-brick { background: rgba(147,51,234,.08) !important; border-color: rgba(147,51,234,.25) !important; }
+[data-theme="dark"] .cal-cell.plan-str   { background: rgba(202,138,4,.08) !important; border-color: rgba(202,138,4,.25) !important; }
+
+/* Done checkmark overlay */
+.cal-done-badge {
+  position: absolute;
+  top: 7px; right: 8px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800;
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.cal-cell.done-run   .cal-done-badge { background: #f97316; }
+.cal-cell.done-swim  .cal-done-badge { background: #0284c7; }
+.cal-cell.done-bike  .cal-done-badge { background: #16a34a; }
+.cal-cell.done-brick .cal-done-badge { background: #9333ea; }
+.cal-cell.done-str   .cal-done-badge { background: #ca8a04; }
+.cal-cell.done-rest  .cal-done-badge { background: #64748b; }
+
+/* Cal num color per sport on done cells */
+.cal-cell.done-run   .cal-num { color: #c2410c !important; }
+.cal-cell.done-swim  .cal-num { color: #0369a1 !important; }
+.cal-cell.done-bike  .cal-num { color: #15803d !important; }
+.cal-cell.done-brick .cal-num { color: #7e22ce !important; }
+.cal-cell.done-str   .cal-num { color: #92400e !important; }
+
+/* Plan text color per sport */
+.cal-cell.done-run   .cal-plan-txt { color: #9a3412 !important; font-weight: 700 !important; }
+.cal-cell.done-swim  .cal-plan-txt { color: #0c4a6e !important; font-weight: 700 !important; }
+.cal-cell.done-bike  .cal-plan-txt { color: #14532d !important; font-weight: 700 !important; }
+.cal-cell.done-brick .cal-plan-txt { color: #581c87 !important; font-weight: 700 !important; }
+.cal-cell.done-str   .cal-plan-txt { color: #78350f !important; font-weight: 700 !important; }
+
+.cal-cell.plan-run   .cal-plan-txt { color: #c2410c !important; }
+.cal-cell.plan-swim  .cal-plan-txt { color: #0369a1 !important; }
+.cal-cell.plan-bike  .cal-plan-txt { color: #15803d !important; }
+.cal-cell.plan-brick .cal-plan-txt { color: #7e22ce !important; }
+.cal-cell.plan-str   .cal-plan-txt { color: #92400e !important; }
+
+[data-theme="dark"] .cal-cell.done-run   .cal-num { color: #fb923c !important; }
+[data-theme="dark"] .cal-cell.done-swim  .cal-num { color: #38bdf8 !important; }
+[data-theme="dark"] .cal-cell.done-bike  .cal-num { color: #4ade80 !important; }
+[data-theme="dark"] .cal-cell.done-brick .cal-num { color: #c084fc !important; }
+[data-theme="dark"] .cal-cell.done-str   .cal-num { color: #fbbf24 !important; }
+
+[data-theme="dark"] .cal-cell.done-run   .cal-plan-txt { color: #fdba74 !important; }
+[data-theme="dark"] .cal-cell.done-swim  .cal-plan-txt { color: #7dd3fc !important; }
+[data-theme="dark"] .cal-cell.done-bike  .cal-plan-txt { color: #86efac !important; }
+[data-theme="dark"] .cal-cell.done-brick .cal-plan-txt { color: #d8b4fe !important; }
+[data-theme="dark"] .cal-cell.done-str   .cal-plan-txt { color: #fde68a !important; }
+
+/* Missed cells — red tint */
+.cal-cell.missed { background: linear-gradient(135deg, #fef2f2, #fee2e2) !important; border-color: #fca5a5 !important; border-width: 2px !important; }
+.cal-cell.missed .cal-num { color: #dc2626 !important; }
+.cal-cell.missed .cal-plan-txt { color: #991b1b !important; }
+.cal-cell.missed::after { content: '✗'; position: absolute; top: 7px; right: 9px; font-size: 13px; font-weight: 900; color: #ef4444; }
+[data-theme="dark"] .cal-cell.missed { background: linear-gradient(135deg, #450a0a, #7f1d1d) !important; border-color: #ef4444 !important; }
+[data-theme="dark"] .cal-cell.missed .cal-num { color: #fca5a5 !important; }
+[data-theme="dark"] .cal-cell.missed .cal-plan-txt { color: #fca5a5 !important; }
+
+/* Today ring — bright accent */
+.cal-cell.today {
+  box-shadow: 0 0 0 2.5px #3b82f6, 0 0 0 5px rgba(59,130,246,.18) !important;
+}
+.cal-cell.today .cal-num { color: #2563eb !important; font-weight: 900 !important; }
+
+/* ═══ ZONE COLORS — completely different per zone ════════════════════════════ */
+
+/* FORM: zone inputs */
+.zlbl4[style*="bfdbfe"] { background: #22d3ee !important; color: #0e7490 !important; } /* Z1 = cyan */
+.zlbl4[style*="3b82f6"] { background: #3b82f6 !important; }                            /* Z2 = blue */  
+.zlbl4[style*="1d4ed8"] { background: #f59e0b !important; }                            /* Z3 = amber */
+.zlbl4[style*="1e3a8a"] { background: #ef4444 !important; }                            /* Z4 = red */
+
+/* Zone bars in form */
+.zbar4 div[style*="bfdbfe"] { background: #22d3ee !important; }
+.zbar4 div[style*="3b82f6"] { background: #3b82f6 !important; }
+.zbar4 div[style*="1d4ed8"] { background: #f59e0b !important; }
+.zbar4 div[style*="1e3a8a"] { background: #ef4444 !important; }
+
+/* Zone bar global override — ALL zone bars in the app */
+/* Z1 = cyan/teal, Z2 = blue, Z3 = amber, Z4 = red */
+[style*="background:#06b6d4"] { background: #06b6d4 !important; }   /* Z1 cyan */
+[style*="background:#3b82f6"] { background: #3b82f6 !important; }   /* Z2 blue — keep */
+[style*="background:#f59e0b"] { background: #f59e0b !important; }   /* Z3 amber */
+[style*="background:#dc2626"] { background: #dc2626 !important; }   /* Z4 red */
+
+/* Zone legend dots */
+.zdot[style*="bfdbfe"] { background: #06b6d4 !important; }
+.zdot[style*="3b82f6"] { background: #3b82f6 !important; }
+.zdot[style*="1d4ed8"] { background: #f59e0b !important; }
+.zdot[style*="1e3a8a"] { background: #dc2626 !important; }
+
+/* Zone legend text — colored labels */
+.zleg-sc .zl-item:nth-child(1) { color: #0891b2 !important; }  /* Z1 */
+.zleg-sc .zl-item:nth-child(2) { color: #2563eb !important; }  /* Z2 */
+.zleg-sc .zl-item:nth-child(3) { color: #d97706 !important; }  /* Z3 */
+.zleg-sc .zl-item:nth-child(4) { color: #dc2626 !important; }  /* Z4 */
+
+/* Zone labels in form inputs */
+.zf4:nth-child(1) .zlbl4 { background: #06b6d4 !important; color: #fff !important; }  /* Z1 cyan */
+.zf4:nth-child(2) .zlbl4 { background: #3b82f6 !important; color: #fff !important; }  /* Z2 blue */
+.zf4:nth-child(3) .zlbl4 { background: #f59e0b !important; color: #fff !important; }  /* Z3 amber */
+.zf4:nth-child(4) .zlbl4 { background: #dc2626 !important; color: #fff !important; }  /* Z4 red */
+
+/* Zone inputs border on focus */
+.zf4:nth-child(1) .zin4:focus { border-color: #06b6d4 !important; }
+.zf4:nth-child(2) .zin4:focus { border-color: #3b82f6 !important; }
+.zf4:nth-child(3) .zin4:focus { border-color: #f59e0b !important; }
+.zf4:nth-child(4) .zin4:focus { border-color: #dc2626 !important; }
+
+/* Zone bar in form preview */
+#m-zbar div:nth-child(1) { background: #06b6d4 !important; }
+#m-zbar div:nth-child(2) { background: #3b82f6 !important; }
+#m-zbar div:nth-child(3) { background: #f59e0b !important; }
+#m-zbar div:nth-child(4) { background: #dc2626 !important; }
+
+/* ═══ LEGEND UPDATE ═════════════════════════════════════════════════════════ */
+/* Zone badge in session cards */
+.sc-tag[style*="bike-lt"] { font-weight: 700 !important; }
+
+/* Z2 tag — make it clearly green not generic */
+.sc-tag[style*="green"] { background: #dcfce7 !important; color: #15803d !important; border-color: #bbf7d0 !important; }
+
+/* ═══ CARD HOVER SPORT ACCENT ════════════════════════════════════════════════ */
+.scard { transition: box-shadow .15s, transform .15s, border-color .15s !important; }
+
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div class="splash" id="splash">
+  <div class="splash-ico">🏊</div>
+  <div class="splash-title">IM703 · Alex</div>
+  <div class="splash-sub">Zell am See · 30. august 2026</div>
+  <div class="splash-bar"><div class="splash-fill"></div></div>
+</div>
+
+<div class="pc-app" id="app" style="opacity:0;transition:opacity .4s">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sb-logo">
+      <span class="sb-logo-ico">🏊</span>
+      <div class="sb-logo-title">Alex · IM703</div>
+      <div class="sb-logo-sub">Zell am See 2026</div>
+      <div class="sb-cd" id="sb-cd">...</div>
+    </div>
+    <div class="sb-nav">
+      <button class="sb-item active" data-v="home" onclick="switchView('home')">
+        <span class="sb-ico">🏠</span><span class="sb-lbl">Dashboard</span><span class="sb-key">D</span>
+      </button>
+      <button class="sb-item" data-v="planner" onclick="switchView('planner')">
+        <span class="sb-ico">📅</span><span class="sb-lbl">Plán</span><span class="sb-key">P</span>
+      </button>
+      <button class="sb-item" data-v="log" onclick="switchView('log')">
+        <span class="sb-ico">📝</span><span class="sb-lbl">Zápisník</span><span class="sb-key">L</span>
+      </button>
+      <button class="sb-item" data-v="progress" onclick="switchView('progress')">
+        <span class="sb-ico">📈</span><span class="sb-lbl">Progress</span><span class="sb-key">R</span>
+      </button>
+      <button class="sb-item" data-v="weekly" onclick="switchView('weekly')">
+        <span class="sb-ico">📊</span><span class="sb-lbl">Týždeň</span><span class="sb-key">W</span>
+      </button>
+      <div class="sb-divider"></div>
+    </div>
+    <div class="sb-bottom">
+      <label class="sb-btn" style="cursor:pointer">
+        <span class="sb-ico">⌚</span><span>Nahrať z Garminu</span>
+        <input type="file" accept=".fit,.gpx,.tcx" style="display:none" onchange="importGarminLog(this)">
+      </label>
+      <button class="sb-btn" onclick="exXL()">
+        <span class="sb-ico">⬇</span><span>Export Excel</span>
+      </button>
+      <button class="sb-btn" onclick="exportPDF()">
+        <span class="sb-ico">📄</span><span>Export PDF</span>
+      </button>
+      <button class="sb-btn" onclick="aiWeeklyEval()" style="color:#93c5fd">
+        <span class="sb-ico">🤖</span><span>AI hodnotenie týždňa</span>
+      </button>
+      <button class="sb-btn" onclick="toggleDark()" id="dark-sb">
+        <span class="sb-ico" id="dark-ico">🌙</span><span>Tmavý režim</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="pc-main">
+    <div class="pc-topbar">
+      <div class="pc-tb-title" id="pc-tb-title">Dashboard</div>
+      <div class="pc-tb-actions">
+        <button class="btn-new" onclick="openDayModal(fmtDate(TODAY,true))">
+          ＋ Nový záznam <span style="font-size:10px;opacity:.45;margin-left:2px">[N]</span>
+        </button>
+        <div class="tb-icon-btn" onclick="toggleDark()" id="dark-btn" title="Tmavý / svetlý režim">🌙</div>
+      </div>
+    </div>
+
+    <div class="pc-scroll"
+      ondragover="event.preventDefault();document.getElementById('drag-z').classList.add('show')"
+      ondragleave="document.getElementById('drag-z').classList.remove('show')"
+      ondrop="handleDrop(event)">
+
+      <div class="view active" id="view-home"></div>
+      <div class="view" id="view-planner"></div>
+      <div class="view" id="view-log"></div>
+      <div class="view" id="view-progress"></div>
+      <div class="view" id="view-weekly"></div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" style="display:none" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- DRAG ZONE -->
+<div class="drag-zone" id="drag-z">
+  <div class="dz-ico">⌚</div>
+  <div class="dz-txt">Pretiahni Garmin súbor sem</div>
+  <div class="dz-sub">.fit · .gpx · .tcx</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DATA & CONFIG
+// ═══════════════════════════════════════════════════════════════════════════
+const RACE_DATE = new Date('2026-08-30');
+const PREP_START = new Date('2026-04-13');
+const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+
+const PC={pre:'#374151','1':'#3b82f6','2':'#8b5cf6','3':'#f59e0b','4':'#ef4444','5':'#22c55e'};
+const PL={pre:'Pre-season','1':'Fáza 1','2':'Fáza 2','3':'Fáza 3','4':'Fáza 4','5':'Fáza 5'};
+const PLF={pre:'Pre-season','1':'Fáza 1 – Základňa','2':'Fáza 2 – Objem','3':'Fáza 3 – Race-specific','4':'Fáza 4 – Peak','5':'Fáza 5 – Taper'};
+const TC={
+  run:{c:'#ea580c',lt:'var(--run-lt)',br:'var(--run-br)',ico:'🏃',lbl:'Beh'},
+  swim:{c:'#0284c7',lt:'var(--swim-lt)',br:'var(--swim-br)',ico:'🏊',lbl:'Plávanie'},
+  bike:{c:'#15803d',lt:'var(--bike-lt)',br:'var(--bike-br)',ico:'🚴',lbl:'Bike'},
+  brick:{c:'#9333ea',lt:'var(--brick-lt)',br:'var(--brick-br)',ico:'⚡',lbl:'Brick'},
+  str:{c:'#b45309',lt:'var(--str-lt)',br:'var(--str-br)',ico:'💪',lbl:'Sila'},
+  rest:{c:'#475569',lt:'var(--rest-lt)',br:'var(--rest-br)',ico:'😴',lbl:'Voľno'}
+};
+
+// 20-week plan (Mon=0 ... Sun=6)
+const PLAN_WEEKS = [
+  {n:1,phase:'1',d:'13–19 apr',days:['Plávanie 50m BA · 1200m','Beh Z2 · 30min · BA','Sila A · 35min · Posilka','Bike Technogym · 45min Z2','Beh Z2 · 40min · Nitra','Beh Z2 · 60min · Nitra','Sila C · 30min · Posilka'],
+   types:['swim','run','str','bike','run','run','str']},
+  {n:2,phase:'1',d:'20–26 apr',days:['Plávanie 50m BA · 1400m','Beh Z2 · 35min · BA','Sila A · 35min · Posilka','Bike Canyon · 55min Z2','Beh Z2+Sila B · 45min','Bike Canyon · 1h Z2','Sila C + strečing'],
+   types:['swim','run','str','bike','run','bike','str']},
+  {n:3,phase:'1',d:'27apr–3máj',days:['Plávanie 50m BA · 1500m','Beh Z2 · 35min · BA','Sila A · 35min · Posilka','Bike Canyon · 1:15h Z2','Beh Z2 · 45min','Beh Z2 · 70min','Sila C · Posilka'],
+   types:['swim','run','str','bike','run','run','str']},
+  {n:4,phase:'1',d:'4–10 máj',days:['Plávanie 50m BA · 1700m','Beh Z2 · 35min · BA','Beh Z2 · 50min · Nitra','Bike Canyon · 1:30h Z2','Beh Z2+Sila C · 45min','Beh Z2 · 75min','Voľno · mobilita'],
+   types:['swim','run','run','bike','run','run','rest']},
+  {n:5,phase:'2',d:'11–17 máj',days:['Riga – Beh Z2 · 30min','Riga – Beh+Sila BW · 35min','Riga – Voľno · chôdza','Riga – Beh+Sila BW · 30min','Riga – Beh Z2 · 35min','Riga – cestovanie','Voľno · regenerácia'],
+   types:['run','run','rest','run','run','rest','rest']},
+  {n:6,phase:'2',d:'18–24 máj',days:['Plávanie 50m BA · 1800m','Beh Z2+Sila B · BA','Sila A · 40min · Posilka','Bike Canyon · 1:45h Z2','Beh Z2+Sila C · 50min','Bike Canyon · 2h Z2','Voľno + strečing'],
+   types:['swim','run','str','bike','run','bike','rest']},
+  {n:7,phase:'2',d:'25–31 máj',days:['Plávanie 50m BA · 1900m','Beh Z2 · 35min · BA','Sila A · 40min · Posilka','Bike Canyon · 2h Z2','Beh Z2+Sila B · 50min','Beh Z2 · 80min','Sila C · 30min'],
+   types:['swim','run','str','bike','run','run','str']},
+  {n:8,phase:'2',d:'1–7 jún',days:['Sila A · 35min · Posilka','Plávanie 25m Nitra · 2000m','Beh Z2 · 55min · Nitra','Bike Canyon · 1:30h Z2','Plávanie 25m Nitra · 2000m','Bike 2:30h + OV 800m','Sila C + strečing'],
+   types:['str','swim','run','bike','swim','bike','str']},
+  {n:9,phase:'2',d:'8–14 jún',days:['Sila A · 35min · Posilka','Plávanie 25m · 2100m','Beh Z2 · 60min · Nitra','Brick: Bike 1h + Beh 25min','Plávanie 25m · 2000m','Bike 2:30h + OV 1km','Beh Z2 · 90min + Sila B'],
+   types:['str','swim','run','brick','swim','bike','run']},
+  {n:10,phase:'3',d:'15–21 jún',days:['Sila A · 35min · Posilka','Plávanie 25m · 2100m','Svadba – Beh 30min','Svadba – Beh+BW sila','Svadba – Beh 25min','Svadba – Voľno','Voľno · regenerácia'],
+   types:['str','swim','run','run','run','rest','rest']},
+  {n:11,phase:'3',d:'22–28 jún',days:['Sila A · 35min · Posilka','Plávanie 25m · 2200m','Beh tempový Z3 · 55min','Bike Canyon · 1:45h Z2/Z3','Plávanie 25m · 2100m','Bike 3h + OV 1.2km','Sila B + strečing'],
+   types:['str','swim','run','bike','swim','bike','str']},
+  {n:12,phase:'3',d:'29jún–5júl',days:['Sila A · 35min · Posilka','Plávanie 25m · 2300m','Beh intervaly Z4 · 55min','Brick: Bike 1:45h + Beh 35min','Plávanie 25m · 2000m','Bike 3:30h (90km!) + OV','Sila C · Posilka'],
+   types:['str','swim','run','brick','swim','bike','str']},
+  {n:13,phase:'3',d:'6–12 júl',days:['Sila A · 30min · Posilka','Plávanie 25m · 2200m','Beh Z2 · 55min · Nitra','Bike Canyon · 1:30h Z2','Voľno · mobilita','Beh Z2 · 80min + OV 1km','Sila C ľahká'],
+   types:['str','swim','run','bike','rest','run','str']},
+  {n:14,phase:'3',d:'13–19 júl',days:['Sila A · 35min · Posilka','Plávanie 25m · 2400m','Beh tempový Z3 · 60min','Brick: Bike 2h + Beh 35min','Plávanie 25m · 2200m','Bike 3:30h kopce + OV','Sila B + strečing'],
+   types:['str','swim','run','brick','swim','bike','str']},
+  {n:15,phase:'4',d:'20–26 júl',days:['Sila A · 35min · Posilka','Plávanie 25m · 2500m','Beh tempový Z3 · 60min','Brick: Bike 2:15h Z3 + Beh 40min','OV 1900m NON-STOP!','Bike 4h (105km!)','Sila C + strečing'],
+   types:['str','swim','run','brick','swim','bike','str']},
+  {n:16,phase:'4',d:'27júl–2aug',days:['Sila A · 35min · Posilka','Plávanie 25m · 2500m','Beh tempový · 65min','Bike Canyon · 2h Z2','Voľno – pred race sim','RACE SIMULATION!','Voľno – regenerácia'],
+   types:['str','swim','run','bike','rest','brick','rest']},
+  {n:17,phase:'4',d:'3–9 aug',days:['Sila A · 30min · Posilka','Plávanie 25m · 2300m','Beh Z2 · 55min · Nitra','Brick: Bike 1:30h + Beh 25min','Plávanie 25m · 2000m','Beh Z2 · 80min + OV','Sila B + strečing'],
+   types:['str','swim','run','brick','swim','run','str']},
+  {n:18,phase:'4',d:'10–16 aug',days:['Sila A · 35min · Posilka','Plávanie 25m · 2400m','Beh tempový · 55min','Brick: Bike 2h + Beh 35min','Plávanie 25m · 2200m','Bike 3:15h + OV','Sila C + strečing'],
+   types:['str','swim','run','brick','swim','bike','str']},
+  {n:19,phase:'5',d:'17–23 aug',days:['Sila A · 25min ľahká','Plávanie 25m · 2000m','Beh Z2/Z3 · 50min','Brick: Bike 1h + Beh 20min','Plávanie 25m · 1800m','OV 1500m + Beh 70min','Voľno · mobilita'],
+   types:['str','swim','run','brick','swim','run','rest']},
+  {n:20,phase:'5',d:'24–30 aug',days:['Core · 15min · Posilka','Plávanie 25m · 1500m','Beh + aktivácie · Nitra','Plávanie · Zell · 1000m','Beh · Zell · 20min','Bike · Zell · roztočka','🏁 PRETEK 70.3!'],
+   types:['str','swim','run','swim','run','bike','rest']}
+];
+
+function getPlanForDate(date){
+  const d = new Date(date); d.setHours(0,0,0,0);
+  if(d < PREP_START) return null; // pre-season
+  const daysSinceStart = Math.floor((d - PREP_START) / 86400000);
+  const wkIdx = Math.floor(daysSinceStart / 7);
+  const dayIdx = daysSinceStart % 7;
+  if(wkIdx >= PLAN_WEEKS.length) return null;
+  return { week: PLAN_WEEKS[wkIdx], dayIdx, session: PLAN_WEEKS[wkIdx].days[dayIdx], type: PLAN_WEEKS[wkIdx].types[dayIdx] };
+}
+
+function getPhaseForDate(date){
+  const d = new Date(date); d.setHours(0,0,0,0);
+  if(d < PREP_START) return 'pre';
+  const daysSinceStart = Math.floor((d - PREP_START) / 86400000);
+  const wkIdx = Math.floor(daysSinceStart / 7);
+  if(wkIdx >= PLAN_WEEKS.length) return '5';
+  return PLAN_WEEKS[wkIdx].phase;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════════════════
+let sessions = JSON.parse(localStorage.getItem('im703final') || '[]');
+let wkMeta   = JSON.parse(localStorage.getItem('im703wk')    || '{}');
+let curView  = 'home';
+let isCompact= false;
+let logPhase = 'all';
+let chartMetric = 'pace';
+let calDate  = new Date(TODAY);
+let wkIdx    = getCurrentWkIdx();
+let modalDate= null;
+let curFeel  = 0;
+let curMloc  = 'Nitra';
+let curMpar  = 'solo';
+let prs = {};
+
+if(!sessions.length){
+  sessions=[{id:1,date:'2026-03-19',phase:'pre',type:'run',sub:'Z2',dist:'10',time:'1:26',pace:'8:37',hrA:'148',hrM:'163',kc:'671',z1:'21',z2:'77',z3:'2',z4:'0',loc:'Nitra',par:'Marcus',feel:4,note:'Pohodové konverzačné tempo s Marcusom. Pekné počasie. Na konci boleli nohy — prvý dlhší beh sezóny, normálne.',extra:{},planDone:false}];
+  save();
+}
+
+function save(){ localStorage.setItem('im703final', JSON.stringify(sessions)); calcPRs(); }
+function saveWk(){ localStorage.setItem('im703wk', JSON.stringify(wkMeta)); }
+
+function getCurrentWkIdx(){
+  const d = Math.floor((TODAY - PREP_START) / 86400000 / 7);
+  return Math.max(0, Math.min(d, PLAN_WEEKS.length-1));
+}
+
+function calcPRs(){
+  prs = {};
+  sessions.forEach(s => {
+    if(s.type==='run' && s.dist){
+      const d = parseFloat(s.dist);
+      if(!prs.runDist || d > prs.runDist){ prs.runDist = d; prs.runDistId = s.id; }
+    }
+    if(s.type==='run' && s.pace){
+      const p = paceToSec(s.pace);
+      if(p>0 && (!prs.runPace || p < prs.runPace)){ prs.runPace = p; prs.runPaceId = s.id; }
+    }
+    if(s.type==='bike' && s.dist){
+      const d = parseFloat(s.dist);
+      if(!prs.bikeDist || d > prs.bikeDist){ prs.bikeDist = d; prs.bikeDistId = s.id; }
+    }
+    if(s.type==='swim' && s.dist){
+      const d = parseFloat(s.dist);
+      if(!prs.swimDist || d > prs.swimDist){ prs.swimDist = d; prs.swimDistId = s.id; }
+    }
+  });
+}
+calcPRs();
+
+// ═══════════════════════════════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════════════════════════════
+function switchView(v){
+  curView = v;
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.bnav-item').forEach(b => b.classList.toggle('active', b.dataset.v===v));
+  renders[v]?.();
+}
+
+const renders = {
+  home:     renderHome,
+  planner:  renderPlanner,
+  log:      renderLog,
+  progress: renderProgress,
+  weekly:   renderWeekly
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// COUNTDOWN & TOP
+// ═══════════════════════════════════════════════════════════════════════════
+function updateTop(){
+  const diff = Math.ceil((RACE_DATE - TODAY) / 86400000);
+  const cd = document.getElementById('top-cd');
+  if(cd) cd.textContent = diff>0 ? diff+' dní' : '🏁 Dnes!';
+}
+updateTop();
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DARK MODE
+// ═══════════════════════════════════════════════════════════════════════════
+const savedTheme = localStorage.getItem('im703theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.getElementById('dark-btn').textContent = savedTheme==='dark' ? '☀️' : '🌙';
+
+function toggleDark(){
+  const t = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('im703theme', t);
+  document.getElementById('dark-btn').textContent = t==='dark' ? '☀️' : '🌙';
+  if(curView==='progress') renderProgress();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// HOME VIEW
+// ═══════════════════════════════════════════════════════════════════════════
+function renderHome(){
+  const plan = getPlanForDate(TODAY);
+  const todaySess = sessions.filter(s => s.date === fmtDate(TODAY, true));
+  const streak = calcStreak();
+  const diff = Math.ceil((RACE_DATE - TODAY) / 86400000);
+  const totalDays = Math.ceil((RACE_DATE - PREP_START) / 86400000);
+  const doneDays = Math.max(0, Math.floor((TODAY - PREP_START) / 86400000));
+  const prepPct = Math.min(100, Math.round(doneDays/totalDays*100));
+  const wkStart = getWkStart(TODAY);
+  const wkSessions = sessions.filter(s => { const d=new Date(s.date);d.setHours(0,0,0,0);return d>=wkStart&&d<=TODAY; });
+  const wkPlan = plan ? plan.week : null;
+  const wkDoneCount = wkPlan ? countWkDone(wkPlan) : wkSessions.length;
+  const wkPct = Math.round(wkDoneCount/7*100);
+  const BASELINE = 517;
+  const runZ2 = sessions.filter(s=>s.type==='run'&&s.pace&&paceToSec(s.pace)>0).slice(-1);
+  const lastPaceSec = runZ2.length ? paceToSec(runZ2[0].pace) : 0;
+  const formaPct = lastPaceSec>0 ? Math.max(0,Math.min(100,Math.round(50+(BASELINE-lastPaceSec)/2))) : 0;
+  const formaLabel = lastPaceSec>0 ? (lastPaceSec<BASELINE?`+${BASELINE-lastPaceSec}s/km`:lastPaceSec===BASELINE?'baseline':`-${lastPaceSec-BASELINE}s/km`) : '–';
+  const alreadyDone = todaySess.length>0;
+
+  // PR banner
+  let prBanner = '';
+  if(sessions.length>0){
+    const last=sessions[0];
+    const isPR=last.id===prs.runPaceId||last.id===prs.bikeDistId||last.id===prs.swimDistId||last.id===prs.runDistId;
+    if(isPR) prBanner=`<div style="background:linear-gradient(135deg,#4c1d95,#1d4ed8);color:#fff;border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(37,99,235,.3)">
+      <span style="font-size:24px">🏆</span>
+      <span style="font-size:14px;font-weight:700;flex:1">Nový osobný rekord — ${last.id===prs.runPaceId?'Najrýchlejší beh Z2':last.id===prs.bikeDistId?'Najdlhší bike':last.id===prs.swimDistId?'Najdlhšie plávanie':'Najdlhší beh'}</span>
+      <button onclick="this.parentNode.remove()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:20px;opacity:.6;padding:0">×</button>
+    </div>`;
+  }
+
+  // Today plan content
+  const tc = plan ? (TC[plan.type]||TC.rest) : TC.rest;
+  const todayContent = plan
+    ? `<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="background:${tc.c};border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px">${tc.ico} ${tc.lbl}</div>
+        <div style="font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;color:#fff;background:${PC[plan.week.phase]||'#888'}">${PLF[plan.week.phase]||''}</div>
+      </div>
+      <div style="font-size:20px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:8px">${plan.session}</div>
+      <div style="font-size:13px;color:#94a3b8">Týždeň ${plan.week.n} z 20 · ${plan.week.d}</div>`
+    : `<div style="font-size:18px;font-weight:700;color:#94a3b8">Pre-season</div>
+       <div style="font-size:13px;color:#64748b;margin-top:6px">Príprava štartuje 13. apríla</div>`;
+
+  // Week mini calendar (current week, Mon-Sun)
+  const WDAYS = ['Po','Ut','St','Št','Pi','So','Ne'];
+  const weekCells = WDAYS.map((d,i) => {
+    const dayD = new Date(wkStart); dayD.setDate(dayD.getDate()+i);
+    const key = fmtDate(dayD,true);
+    const isT = dayD.getTime()===TODAY.getTime();
+    const dayS = sessions.filter(s=>s.date===key);
+    const hasSess = dayS.length>0;
+    const isPast = dayD < TODAY;
+    const planD = getPlanForDate(dayD);
+    const tc2 = hasSess ? (TC[dayS[0].type]||TC.rest) : (planD ? (TC[planD.type]||TC.rest) : TC.rest);
+    let bg = 'var(--surf2)'; let border = 'var(--brd)'; let opacity = '';
+    if(hasSess){ bg=tc2.lt; border=tc2.br; }
+    else if(!hasSess && isPast && planD) { bg='var(--red-lt)'; border='#fca5a5'; }
+    else if(!isPast) { opacity='opacity:.5'; }
+    return `<div onclick="openDayModal('${key}')" style="border-radius:10px;background:${bg};border:2px solid ${bg===tc2.lt?tc2.br:border};padding:8px 4px;text-align:center;cursor:pointer;transition:all .12s;${opacity}${isT?';box-shadow:0 0 0 2px #3b82f6,0 0 0 4px rgba(59,130,246,.2)':''}">
+      <div style="font-size:10px;font-weight:700;color:var(--txt3);text-transform:uppercase;margin-bottom:4px">${d}</div>
+      <div style="font-size:19px;line-height:1;margin-bottom:3px">${hasSess?tc2.ico:(planD?tc2.ico:'·')}</div>
+      <div style="font-size:10px;font-weight:700;color:${hasSess?tc2.c:'var(--txt3)'}">${hasSess?'✓':dayD.getDate()}</div>
+    </div>`;
+  }).join('');
+
+  // Last 5 sessions
+  const recentRows = sessions.slice(0,5).map(s => {
+    const tc2=TC[s.type]||TC.rest;
+    const z2=parseInt(s.z2)||0;
+    return `<div onclick="openDayModal('${s.date}')" style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--brd);cursor:pointer;transition:background .1s;border-radius:4px" onmouseover="this.style.paddingLeft='6px'" onmouseout="this.style.paddingLeft='0'">
+      <div style="width:38px;height:38px;border-radius:10px;background:${tc2.lt};border:1.5px solid ${tc2.br};display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">${tc2.ico}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:700;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${tc2.lbl}${s.sub?' · '+s.sub:''}</div>
+        <div style="font-size:11px;color:var(--txt3);margin-top:1px">${fmtDateDisp(s.date)}${s.dist?' · '+s.dist+(s.type==='swim'?'m':'km'):''}${s.time?' · '+s.time:''}</div>
+      </div>
+      ${s.hrA?`<div style="font-size:12px;font-weight:700;color:var(--txt2);flex-shrink:0">♥ ${s.hrA}</div>`:''}
+      ${z2>0?`<div style="width:40px;height:6px;border-radius:3px;overflow:hidden;flex-shrink:0;background:var(--brd)">
+        <div style="height:100%;width:${z2}%;background:#3b82f6;border-radius:3px"></div>
+      </div>`:''}
+      <div style="flex-shrink:0;font-size:13px;color:#f59e0b;letter-spacing:-1px">${'★'.repeat(s.feel||0)}</div>
+    </div>`;
+  }).join('');
+
+  // Stats totals
+  const totalKm = sessions.filter(s=>s.type==='run'||s.type==='brick').reduce((a,s)=>a+(parseFloat(s.dist)||0),0);
+  const totalBike = sessions.filter(s=>s.type==='bike').reduce((a,s)=>a+(parseFloat(s.dist)||0),0);
+  const totalSwim = sessions.filter(s=>s.type==='swim').reduce((a,s)=>a+(parseFloat(s.dist)||0),0);
+  const totalSess = sessions.length;
+  const totalKcal = sessions.reduce((a,s)=>a+(parseInt(s.kc)||0),0);
+
+  // Next 3 planned days
+  const upcoming = [];
+  for(let i=1;i<=14&&upcoming.length<3;i++){
+    const nd=new Date(TODAY);nd.setDate(nd.getDate()+i);nd.setHours(0,0,0,0);
+    const p=getPlanForDate(nd);
+    if(p){
+      const tc3=TC[p.type]||TC.rest;
+      upcoming.push(`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--brd)">
+        <div style="width:34px;height:34px;border-radius:8px;background:${tc3.lt};border:1.5px solid ${tc3.br};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${tc3.ico}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:700;color:var(--txt)">${p.session.split('·')[0].trim().substring(0,30)}</div>
+          <div style="font-size:11px;color:var(--txt3);margin-top:1px">${formatDateSk(nd).split(',')[0]} · ${fmtDateDisp(fmtDate(nd,true))}</div>
+        </div>
+        <div style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;color:#fff;background:${PC[p.week.phase]||'#888'};flex-shrink:0">T${p.week.n}</div>
+      </div>`);
+    }
+  }
+
+  document.getElementById('view-home').innerHTML = `
+  ${prBanner ? `<div style="margin-bottom:14px">${prBanner}</div>` : ''}
+
+  <!-- ROW 1: Today hero + Stats strip -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+
+    <!-- TODAY HERO -->
+    <div style="background:linear-gradient(135deg,#0d1117 0%,#1a1f35 55%,#0d1117 100%);border-radius:16px;padding:24px;position:relative;overflow:hidden;border:1px solid #1e2d45;grid-row:span 1">
+      <div style="position:absolute;top:-40px;right:-20px;width:160px;height:160px;background:rgba(59,130,246,.1);border-radius:50%;pointer-events:none"></div>
+      <div style="position:absolute;bottom:-30px;left:20px;width:100px;height:100px;background:rgba(234,88,12,.07);border-radius:50%;pointer-events:none"></div>
+      <div style="position:relative;z-index:1">
+        <div style="font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px">${formatDateSk(TODAY)}</div>
+        <div style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-.8px;margin-bottom:18px;line-height:1">${diff>0?diff+' dní':'Race day!'} <span style="font-size:16px;font-weight:500;color:#475569">do preteku</span></div>
+        ${todayContent}
+        <div style="display:flex;gap:8px;margin-top:20px">
+          ${alreadyDone
+            ? `<button style="flex:1;padding:12px;font-size:14px;font-weight:700;border:none;border-radius:10px;background:#16a34a;color:#fff;cursor:pointer">✓ Odtrénované dnes</button>`
+            : plan
+              ? `<button onclick="openDayModal('${fmtDate(TODAY,true)}')" style="flex:1;padding:12px;font-size:14px;font-weight:700;border:none;border-radius:10px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;cursor:pointer;box-shadow:0 2px 10px rgba(37,99,235,.35)">+ Zapísať výsledok</button>
+                 <button onclick="switchView('planner')" style="padding:12px 18px;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.06);color:#94a3b8;cursor:pointer">Plán →</button>`
+              : `<button onclick="openDayModal('${fmtDate(TODAY,true)}')" style="flex:1;padding:12px;font-size:14px;font-weight:700;border:none;border-radius:10px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;cursor:pointer">+ Zapísať tréning</button>`
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Rings + Week mini cal -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+      <!-- 3 PROGRESS RINGS -->
+      <div style="background:var(--surf);border-radius:14px;border:1px solid var(--brd);padding:18px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="text-align:center">
+          ${ringHTML(prepPct,'#3b82f6')}
+          <div style="font-size:12px;font-weight:700;color:var(--txt2);margin-top:4px">Príprava</div>
+          <div style="font-size:10px;color:var(--txt3);margin-top:1px">${doneDays} z ${totalDays} dní</div>
+        </div>
+        <div style="text-align:center">
+          ${ringHTML(wkPct,'#16a34a')}
+          <div style="font-size:12px;font-weight:700;color:var(--txt2);margin-top:4px">Tento týždeň</div>
+          <div style="font-size:10px;color:var(--txt3);margin-top:1px">${wkDoneCount} z 7 dní</div>
+        </div>
+        <div style="text-align:center">
+          ${ringHTML(formaPct,'#f59e0b',formaLabel)}
+          <div style="font-size:12px;font-weight:700;color:var(--txt2);margin-top:4px">Forma</div>
+          <div style="font-size:10px;color:var(--txt3);margin-top:1px">vs baseline 8:37</div>
+        </div>
+      </div>
+
+      <!-- WEEK MINI CALENDAR -->
+      <div style="background:var(--surf);border-radius:14px;border:1px solid var(--brd);padding:16px 18px">
+        <div style="font-size:13px;font-weight:700;color:var(--txt);margin-bottom:12px">Aktuálny týždeň${wkPlan?' · Týždeň '+wkPlan.n:''}</div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
+          ${weekCells}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ROW 2: Stats strip -->
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px">
+    <div style="background:var(--run-lt);border:1.5px solid var(--run-br);border-radius:12px;padding:16px 14px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:var(--run);letter-spacing:-.5px">${totalKm.toFixed(1)}</div>
+      <div style="font-size:11px;font-weight:700;color:var(--run);opacity:.7;margin-top:3px;text-transform:uppercase;letter-spacing:.4px">km beh</div>
+    </div>
+    <div style="background:var(--swim-lt);border:1.5px solid var(--swim-br);border-radius:12px;padding:16px 14px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:var(--swim);letter-spacing:-.5px">${Math.round(totalSwim).toLocaleString()}</div>
+      <div style="font-size:11px;font-weight:700;color:var(--swim);opacity:.7;margin-top:3px;text-transform:uppercase;letter-spacing:.4px">m plávanie</div>
+    </div>
+    <div style="background:var(--bike-lt);border:1.5px solid var(--bike-br);border-radius:12px;padding:16px 14px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:var(--bike);letter-spacing:-.5px">${totalBike.toFixed(1)}</div>
+      <div style="font-size:11px;font-weight:700;color:var(--bike);opacity:.7;margin-top:3px;text-transform:uppercase;letter-spacing:.4px">km bike</div>
+    </div>
+    <div style="background:var(--brick-lt);border:1.5px solid var(--brick-br);border-radius:12px;padding:16px 14px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:var(--brick);letter-spacing:-.5px">${totalSess}</div>
+      <div style="font-size:11px;font-weight:700;color:var(--brick);opacity:.7;margin-top:3px;text-transform:uppercase;letter-spacing:.4px">tréningov</div>
+    </div>
+    <div style="background:#fce7f3;border:1.5px solid #fbcfe8;border-radius:12px;padding:16px 14px;text-align:center">
+      <div style="font-size:26px;font-weight:800;color:#be185d;letter-spacing:-.5px">${totalKcal.toLocaleString()}</div>
+      <div style="font-size:11px;font-weight:700;color:#be185d;opacity:.7;margin-top:3px;text-transform:uppercase;letter-spacing:.4px">kcal</div>
+    </div>
+  </div>
+
+  <!-- ROW 3: Recent sessions + Upcoming + PRs -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+
+    <!-- RECENT SESSIONS -->
+    <div style="background:var(--surf);border-radius:14px;border:1px solid var(--brd);padding:18px 20px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div style="font-size:14px;font-weight:700;color:var(--txt)">Posledné tréningy</div>
+        <button onclick="switchView('log')" style="font-size:11px;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer;padding:0">Všetky →</button>
+      </div>
+      ${sessions.length ? recentRows : '<div style="font-size:13px;color:var(--txt3);padding:16px 0;text-align:center">Zatiaľ žiadne záznamy</div>'}
+    </div>
+
+    <!-- UPCOMING SESSIONS -->
+    <div style="background:var(--surf);border-radius:14px;border:1px solid var(--brd);padding:18px 20px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div style="font-size:14px;font-weight:700;color:var(--txt)">Najbližšie plánované</div>
+        <button onclick="switchView('planner')" style="font-size:11px;font-weight:700;color:var(--accent);background:none;border:none;cursor:pointer;padding:0">Plán →</button>
+      </div>
+      ${upcoming.length ? upcoming.join('') : '<div style="font-size:13px;color:var(--txt3);padding:16px 0;text-align:center">Žiadne plánované</div>'}
+    </div>
+
+    <!-- PERSONAL RECORDS -->
+    <div style="background:var(--surf);border-radius:14px;border:1px solid var(--brd);padding:18px 20px">
+      <div style="font-size:14px;font-weight:700;color:var(--txt);margin-bottom:14px">Osobné rekordy</div>
+      ${[
+        {ico:'🏃',lbl:'Najrýchlejší pace Z2',val:prs.runPace?`${Math.floor(prs.runPace/60)}:${String(Math.round(prs.runPace%60)).padStart(2,'0')} min/km`:'–',c:'var(--run)'},
+        {ico:'🏃',lbl:'Najdlhší beh',val:prs.runDist?prs.runDist.toFixed(1)+' km':'–',c:'var(--run)'},
+        {ico:'🚴',lbl:'Najdlhší bike',val:prs.bikeDist?prs.bikeDist.toFixed(1)+' km':'–',c:'var(--bike)'},
+        {ico:'🏊',lbl:'Najdlhšie plávanie',val:prs.swimDist?Math.round(prs.swimDist)+' m':'–',c:'var(--swim)'},
+      ].map(r=>`<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--brd)">
+        <div style="font-size:20px;flex-shrink:0">${r.ico}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:11px;color:var(--txt3);font-weight:600;margin-bottom:1px">${r.lbl}</div>
+          <div style="font-size:15px;font-weight:800;color:${r.c}">${r.val}</div>
+        </div>
+        ${r.val!=='–'?`<div style="font-size:16px">🏅</div>`:''}
+      </div>`).join('')}
+    </div>
+
+  </div>
+
+  ${streak>0?`<!-- STREAK --><div style="background:linear-gradient(135deg,#92400e,#c2410c,#ea580c);border-radius:14px;padding:16px 22px;margin-top:14px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(234,88,12,.3)">
+    <span style="font-size:40px">🔥</span>
+    <div><div style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1">${streak} dní</div><div style="font-size:13px;color:rgba(255,255,255,.75);font-weight:600;margin-top:3px">Aktívna séria — pokračuj!</div></div>
+    <div style="margin-left:auto;font-size:12px;color:rgba(255,255,255,.5);font-weight:600">Nezabudni zaznamenať aj dnešný tréning</div>
+  </div>`:''}
+  `;
+}
+
+function ringHTML(pct, color, label){
+  const r = 26, circ = 2*Math.PI*r;
+  const offset = circ - (pct/100)*circ;
+  const display = label !== undefined ? label : pct+'%';
+  const fontSize = display.length > 4 ? '10px' : '13px';
+  return `<div class="ring-wrap">
+    <svg class="ring-svg" viewBox="0 0 64 64">
+      <circle class="ring-bg" cx="32" cy="32" r="${r}"/>
+      <circle class="ring-fill" cx="32" cy="32" r="${r}" stroke="${color}"
+        stroke-dasharray="${circ}" stroke-dashoffset="${offset}"/>
+    </svg>
+    <div class="ring-val" style="font-size:${fontSize}">${display}</div>
+  </div>`;
+}
+
+function calcStreak(){
+  const dates = new Set(sessions.map(s=>s.date));
+  let streak = 0, d = new Date(TODAY);
+  while(true){
+    const key = fmtDate(d, true);
+    if(!dates.has(key)) break;
+    streak++;
+    d.setDate(d.getDate()-1);
+  }
+  return streak;
+}
+
+function countWkDone(wk){
+  const wkStart = new Date(PREP_START);
+  wkStart.setDate(wkStart.getDate() + (wk.n-1)*7);
+  return sessions.filter(s=>{
+    const d=new Date(s.date);d.setHours(0,0,0,0);
+    const end=new Date(wkStart);end.setDate(end.getDate()+6);
+    return d>=wkStart&&d<=end;
+  }).length;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PLANNER VIEW
+// ═══════════════════════════════════════════════════════════════════════════
+function renderPlanner(){
+  const y = calDate.getFullYear(), m = calDate.getMonth();
+  const monthNames = ['Január','Február','Marec','Apríl','Máj','Jún','Júl','August','September','Október','November','December'];
+  const first = new Date(y,m,1);
+  const startDow = (first.getDay()+6)%7; // Pondelok=0
+  const daysInMonth = new Date(y,m+1,0).getDate();
+
+  const sessMap = {};
+  sessions.forEach(s=>{ if(!sessMap[s.date]) sessMap[s.date]=[]; sessMap[s.date].push(s); });
+
+  // Build calendar cells
+  let cells = '';
+  for(let i=0;i<startDow;i++) cells+=`<div class="cal-cell empty"></div>`;
+  for(let day=1;day<=daysInMonth;day++){
+    const d = new Date(y,m,day); d.setHours(0,0,0,0);
+    const key = fmtDate(d,true);
+    const isToday = d.getTime()===TODAY.getTime();
+    const isPre = d < PREP_START;
+    const isFuture = d > TODAY;
+    const plan = getPlanForDate(d);
+    const sess = sessMap[key]||[];
+    const hasSess = sess.length>0;
+    const tc = hasSess ? (TC[sess[0].type]||TC.rest) : (plan ? (TC[plan.type]||TC.rest) : null);
+
+    let cls='cal-cell';
+    let style='';
+    if(isToday) cls+=' today';
+    if(isPre){ cls+=' preseason'; }
+    else if(hasSess){
+      const sportCls = sess[0].type||'run';
+      cls+=' done done-'+sportCls;
+      // no inline style — CSS classes handle coloring
+    }
+    else if(!isFuture&&plan&&!hasSess&&d>=PREP_START){ cls+=' missed'; }
+    else if(plan){
+      const planSport = plan.type||'rest';
+      cls+=' plan-'+planSport;
+    }
+    else if(isFuture){ cls+=' future'; }
+
+    // Plan/session text inside cell
+    let planTxt = '';
+    if(hasSess){
+      const s = sess[0];
+      planTxt = `<div class="cal-plan-txt">${TC[s.type]?.lbl||''}${s.sub?' · '+s.sub:''}${s.dist?' · '+s.dist+(s.type==='swim'?'m':'km'):''}</div>`;
+      if(s.hrA) planTxt += `<div class="cal-sess-hr" style="color:rgba(255,255,255,.75);font-size:10px;font-weight:700;margin-top:auto;padding-top:3px">♥ ${s.hrA} bpm</div>`;
+    } else if(plan && !isPre){
+      const shortPlan = plan.session.split('·')[0].trim().substring(0,26);
+      planTxt = `<div class="cal-plan-txt">${shortPlan}</div>`;
+    }
+
+    // Tooltip
+    let tooltip = '';
+    if(hasSess){
+      const s = sess[0];
+      tooltip = `<div class="cal-tip">${TC[s.type]?.ico||''} ${TC[s.type]?.lbl||''}${s.sub?' · '+s.sub:''}${s.dist?' · '+s.dist+(s.type==='swim'?'m':'km'):''} ✓</div>`;
+    } else if(plan && !isPre){
+      tooltip = `<div class="cal-tip">${plan.session.substring(0,50)}</div>`;
+    }
+
+    cells+=`<div class="${cls}" onclick="openDayModal('${key}')">
+      ${hasSess?'<div class="cal-done-badge">✓</div>':''}
+      <div class="cal-num">${day}</div>
+      <div class="cal-ico">${hasSess?(TC[sess[0].type]?.ico||'·'):(plan&&!isPre?(TC[plan.type]?.ico||'·'):'')}</div>
+      ${planTxt}
+      ${tooltip}
+    </div>`;
+  }
+
+  // Week progress bars
+  let wkBars = '';
+  PLAN_WEEKS.forEach(wk=>{
+    const done = countWkDone(wk);
+    const pct = Math.round(done/7*100);
+    const pc = PC[wk.phase]||'#888';
+    const phLabel = PL[wk.phase]||'';
+    wkBars+=`<div class="wk-row">
+      <div class="wk-num">T${wk.n}</div>
+      <div class="wk-pill" style="background:${pc}">${phLabel}</div>
+      <div style="font-size:10px;color:var(--txt3);min-width:80px;flex-shrink:0">${wk.d}</div>
+      <div class="wk-prog"><div class="wk-prog-fill" style="width:${pct}%;background:${pc}"></div></div>
+      <div class="wk-pct">${pct}%</div>
+    </div>`;
+  });
+
+  // Legend items
+  const legendItems = [
+    {bg:'#dcfce7',br:'#bbf7d0',txt:'Splnené'},
+    {bg:'var(--surf2)',br:'var(--brd)',txt:'Plánované'},
+    {bg:'#fee2e2',br:'#fecaca',txt:'Vynechané'},
+    {bg:'var(--surf2)',br:'#3b82f6',txt:'Dnes'},
+    {bg:'var(--surf2)',br:'var(--brd)',txt:'Pre-season',op:.6},
+  ].map(l=>`<div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--txt2);font-weight:600${l.op?';opacity:'+l.op:''}">
+    <div style="width:12px;height:12px;background:${l.bg};border-radius:4px;border:1.5px solid ${l.br};flex-shrink:0"></div>${l.txt}
+  </div>`).join('');
+
+  document.getElementById('view-planner').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start">
+
+      <!-- CALENDAR CARD (left, full height) -->
+      <div class="card" style="margin-bottom:0">
+        <div style="padding:18px 20px">
+
+          <!-- Month navigation -->
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+            <button onclick="calNav(-1)" style="width:34px;height:34px;border-radius:9px;border:1.5px solid var(--brd);background:var(--surf2);font-size:16px;cursor:pointer;color:var(--txt2);display:flex;align-items:center;justify-content:center;transition:all .15s" onmouseover="this.style.background='var(--surf3)'" onmouseout="this.style.background='var(--surf2)'">‹</button>
+            <div style="flex:1;text-align:center;font-size:17px;font-weight:800;color:var(--txt);letter-spacing:-.3px">${monthNames[m]} ${y}</div>
+            <button onclick="calNav(1)" style="width:34px;height:34px;border-radius:9px;border:1.5px solid var(--brd);background:var(--surf2);font-size:16px;cursor:pointer;color:var(--txt2);display:flex;align-items:center;justify-content:center;transition:all .15s" onmouseover="this.style.background='var(--surf3)'" onmouseout="this.style.background='var(--surf2)'">›</button>
+            <button onclick="calToday()" style="padding:6px 13px;border-radius:9px;border:1.5px solid var(--accent);background:var(--accent-lt);color:var(--accent);font-size:12px;font-weight:700;cursor:pointer">Dnes</button>
+          </div>
+
+          <!-- Day name headers — INSIDE same grid as cells -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px">
+            ${['Pondelok','Utorok','Streda','Štvrtok','Piatok','Sobota','Nedeľa'].map(d=>`<div style="text-align:center;font-size:13px;font-weight:700;color:var(--txt2);padding:10px 4px 8px;border-bottom:2px solid var(--brd);letter-spacing:0">${d}</div>`).join('')}
+          </div>
+
+          <!-- Calendar grid -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+            ${cells}
+          </div>
+
+          <!-- Legend -->
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--brd);align-items:center">
+            ${legendItems}
+            <div style="height:20px;width:1px;background:var(--brd);flex-shrink:0"></div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#f97316;font-weight:700">🏃 Beh</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#0284c7;font-weight:700">🏊 Plávanie</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#16a34a;font-weight:700">🚴 Bike</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#9333ea;font-weight:700">⚡ Brick</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#ca8a04;font-weight:700">💪 Sila</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: Progress + current week info -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+
+        <!-- Current week highlight -->
+        ${(()=>{
+          const wkIdx2 = Math.max(0, Math.floor((TODAY - PREP_START) / 86400000 / 7));
+          const wk = PLAN_WEEKS[wkIdx2];
+          if(!wk) return '';
+          const pc = PC[wk.phase]||'#888';
+          const done = countWkDone(wk);
+          return `<div class="card" style="margin-bottom:0">
+            <div style="padding:16px 18px">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                <div style="font-size:14px;font-weight:700;color:var(--txt)">Aktuálny týždeň</div>
+                <span style="font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;color:#fff;background:${pc}">${PL[wk.phase]||''}</span>
+              </div>
+              <div style="font-size:22px;font-weight:800;color:var(--txt);margin-bottom:2px">Týždeň ${wk.n}</div>
+              <div style="font-size:12px;color:var(--txt3);margin-bottom:14px">${wk.d}</div>
+              <div style="background:var(--brd);border-radius:6px;height:8px;overflow:hidden;margin-bottom:6px">
+                <div style="height:100%;width:${Math.round(done/7*100)}%;background:${pc};border-radius:6px;transition:width .5s"></div>
+              </div>
+              <div style="font-size:12px;color:var(--txt2);font-weight:600">${done} z 7 dní odtrénovaných</div>
+            </div>
+          </div>`;
+        })()}
+
+        <!-- 20-week progress -->
+        <div class="card" style="margin-bottom:0">
+          <div style="padding:16px 18px">
+            <div style="font-size:14px;font-weight:700;color:var(--txt);margin-bottom:14px">Progress prípravy</div>
+            ${wkBars}
+          </div>
+        </div>
+
+      </div>
+    </div>`;
+}
+
+function calNav(dir){ calDate.setMonth(calDate.getMonth()+dir); renderPlanner(); }
+function calToday(){ calDate = new Date(TODAY); renderPlanner(); }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DAY MODAL
+// ═══════════════════════════════════════════════════════════════════════════
+function openDayModal(dateStr){
+  modalDate = dateStr;
+  curFeel = 0; curMloc = 'Nitra'; curMpar = 'solo';
+  const d = new Date(dateStr); d.setHours(0,0,0,0);
+  const plan = getPlanForDate(d);
+  const daySess = sessions.filter(s=>s.date===dateStr);
+  const isPreSeason = d < PREP_START;
+
+  let planHTML = '';
+  if(plan){
+    const tc = TC[plan.type]||TC.rest;
+    planHTML = `<div class="plan-block">
+      <div class="plan-block-title">Plán · Týždeň ${plan.week.n} · ${PLF[plan.week.phase]||''}</div>
+      <div class="plan-item">
+        <div class="plan-item-ico">${tc.ico}</div>
+        <div>
+          <div class="plan-item-name">${plan.session}</div>
+          <div class="plan-item-meta">${TC[plan.type]?.lbl||''}</div>
+        </div>
+      </div>
+    </div>`;
+  } else if(isPreSeason){
+    planHTML = `<div class="plan-block">
+      <div class="plan-block-title">Pre-season</div>
+      <div style="font-size:12px;color:var(--txt3);padding:6px 0">Voľný tréning — príprava začína 13. apríla.</div>
+    </div>`;
+  }
+
+  let existingHTML = '';
+  if(daySess.length){
+    existingHTML = `<div style="margin-bottom:14px">
+      <div class="modal-form-title">Zaznamenané tréningy</div>
+      ${daySess.map(s=>{
+        const tc2=TC[s.type]||TC.rest;
+        return `<div style="display:flex;align-items:center;gap:10px;padding:8px;background:${tc2.lt};border-radius:10px;margin-bottom:6px;border:1px solid ${tc2.br}">
+          <span style="font-size:18px">${tc2.ico}</span>
+          <div style="flex:1">
+            <div style="font-size:12px;font-weight:700;color:var(--txt)">${tc2.lbl}${s.sub?' · '+s.sub:''}</div>
+            <div style="font-size:11px;color:var(--txt2)">${s.dist||''}${s.type==='swim'?'m':s.dist?'km':''} ${s.time?'· '+s.time:''} ${s.hrA?'· '+s.hrA+' bpm':''}</div>
+          </div>
+          <button onclick="delSModal(${s.id})" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:18px;padding:0">×</button>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }
+
+  const autoPhase = isPreSeason ? 'pre' : getPhaseForDate(d);
+
+  document.getElementById('modal-content').innerHTML = `
+    <div class="modal-title">${formatDateSk(d)}</div>
+    <div class="modal-date">${dateStr}</div>
+    ${planHTML}
+    ${existingHTML}
+    <div class="modal-form-title">Pridať záznam</div>
+    <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap" id="modal-type-btns">
+      ${Object.entries(TC).map(([k,v])=>`<button onclick="setModalType('${k}')" data-mt="${k}" style="padding:7px 12px;font-size:11px;font-weight:700;border-radius:20px;border:1.5px solid var(--brd);background:var(--surf2);color:var(--txt3);cursor:pointer;transition:all .12s">${v.ico} ${v.lbl}</button>`).join('')}
+    </div>
+    <div style="margin-bottom:12px;display:none" id="modal-sub-wrap">
+      <div class="mflbl" style="margin-bottom:6px">Typ tréningu</div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap" id="modal-sub-btns"></div>
+    </div>
+    <div class="mg mg3" style="margin-bottom:8px">
+      <div class="mfield"><div class="mflbl">Čas trvania</div><div class="miw"><input type="text" class="mfi" id="m-time" placeholder="1:26"><span class="miu">h:mm</span></div></div>
+      <div class="mfield"><div class="mflbl" id="m-dist-lbl">Vzdialenosť</div><div class="miw"><input type="number" class="mfi" id="m-dist" placeholder="0" step="0.1"><span class="miu" id="m-dist-u">km</span></div></div>
+      <div class="mfield"><div class="mflbl" id="m-pace-lbl">Avg pace</div><div class="miw"><input type="text" class="mfi" id="m-pace" placeholder="8:37"><span class="miu" id="m-pace-u">min/km</span></div></div>
+    </div>
+    <div class="mg mg3" style="margin-bottom:8px">
+      <div class="mfield"><div class="mflbl">Avg HR</div><div class="miw"><input type="number" class="mfi" id="m-hr-a" placeholder="148" min="0" max="220"><span class="miu">bpm</span></div></div>
+      <div class="mfield"><div class="mflbl">Max HR</div><div class="miw"><input type="number" class="mfi" id="m-hr-m" placeholder="163" min="0" max="220"><span class="miu">bpm</span></div></div>
+      <div class="mfield"><div class="mflbl">Kcal</div><div class="miw"><input type="number" class="mfi" id="m-kc" placeholder="671"><span class="miu">kcal</span></div></div>
+    </div>
+    <div style="margin-bottom:8px">
+      <div class="mflbl" style="margin-bottom:6px">Zóny (%)</div>
+      <div class="zrow4">
+        <div class="zf4"><div class="zlbl4" style="background:#06b6d4;color:#fff">Z1</div><input type="number" class="zin4" id="m-z1" placeholder="0" min="0" max="100" oninput="updMZ()"></div>
+        <div class="zf4"><div class="zlbl4" style="background:#3b82f6">Z2</div><input type="number" class="zin4" id="m-z2" placeholder="0" min="0" max="100" oninput="updMZ()"></div>
+        <div class="zf4"><div class="zlbl4" style="background:#f59e0b">Z3</div><input type="number" class="zin4" id="m-z3" placeholder="0" min="0" max="100" oninput="updMZ()"></div>
+        <div class="zf4"><div class="zlbl4" style="background:#dc2626">Z4</div><input type="number" class="zin4" id="m-z4" placeholder="0" min="0" max="100" oninput="updMZ()"></div>
+      </div>
+      <div class="zbar4" id="m-zbar"></div>
+      <div class="ztot4" id="m-ztot"></div>
+    </div>
+    <div id="m-extra-wrap" style="display:none;margin-bottom:8px">
+      <div class="mflbl" style="margin-bottom:6px" id="m-extra-title">Detaily</div>
+      <div id="m-extra-fields"></div>
+    </div>
+    <div style="margin-bottom:8px">
+      <div class="mflbl" style="margin-bottom:6px">Miesto</div>
+      <div class="chips-row" id="m-loc-chips">
+        ${['Nitra','Bratislava','Jazero','Technogym','Riga','Švajčiarsko','Zell am See'].map(l=>`<div class="mchip${l==='Nitra'?' active':''}" data-ml="${l}" onclick="setMLoc('${l}')" style="${l==='Nitra'?'background:#0f172a;color:#fff;border-color:#0f172a':''}">${l}</div>`).join('')}
+      </div>
+    </div>
+    <div style="margin-bottom:8px">
+      <div class="mflbl" style="margin-bottom:6px">Partner</div>
+      <div class="chips-row" id="m-par-chips">
+        <div class="mchip active" data-mp="solo" onclick="setMPar('solo')" style="background:#0f172a;color:#fff;border-color:#0f172a">Solo</div>
+        <div class="mchip" data-mp="Marcus" onclick="setMPar('Marcus')">s Marcusom</div>
+      </div>
+    </div>
+    <div style="margin-bottom:8px">
+      <div class="mflbl" style="margin-bottom:6px">Pocit</div>
+      <div class="stars-row" id="m-stars">
+        ${[1,2,3,4,5].map(i=>`<span class="mstar" data-v="${i}" onclick="setMFeel(${i})">☆</span>`).join('')}
+      </div>
+    </div>
+    <div style="margin-bottom:10px">
+      <div class="mflbl" style="margin-bottom:6px">Poznámka</div>
+      <textarea class="mfi" id="m-note" rows="2" placeholder="Ako sa cítilo telo..."></textarea>
+    </div>
+    <input type="hidden" id="m-phase" value="${autoPhase}">
+    <input type="hidden" id="m-type" value="run">
+    <input type="hidden" id="m-sub" value="Z2">
+    <div class="modal-footer">
+      <button class="btn-primary" id="m-save-btn" onclick="saveModal()" style="background:#ea580c">Uložiť</button>
+      <label class="btn-garmin-sm"><input type="file" accept=".fit,.gpx,.tcx" style="display:none" onchange="importGarminModal(this)">⌚ Garmin</label>
+      <button class="btn-secondary" onclick="closeModal()">Zavrieť</button>
+    </div>`;
+
+  setModalType('run');
+  document.getElementById('modal').style.display='flex';
+}
+
+const MODAL_SUBS = {
+  run:   ['Z2','Tempový','Intervaly','Dlhý beh','Brick-beh'],
+  swim:  ['Bazén 25m','Bazén 50m','Otvorená voda'],
+  bike:  ['Z2','Tempový','Kopce','Brick-bike'],
+  brick: ['Bike + Beh'],
+  str:   ['Sila A','Sila B','Sila C'],
+  rest:  ['Voľno','Mobilita','Strečing']
+};
+
+function setModalType(t){
+  document.getElementById('m-type').value = t;
+  const tc = TC[t]||TC.rest;
+  document.querySelectorAll('#modal-type-btns button').forEach(b=>{
+    const a=b.dataset.mt===t;
+    b.style.background = a ? tc.lt : 'var(--surf2)';
+    b.style.borderColor = a ? tc.c : 'var(--brd)';
+    b.style.color = a ? tc.c : 'var(--txt3)';
+  });
+  document.getElementById('m-save-btn').style.background = tc.c;
+  // subtype chips
+  const subs = MODAL_SUBS[t]||[];
+  const subWrap = document.getElementById('modal-sub-wrap');
+  const subBtns = document.getElementById('modal-sub-btns');
+  if(subs.length && subWrap && subBtns){
+    subWrap.style.display = '';
+    const firstSub = subs[0];
+    document.getElementById('m-sub').value = firstSub;
+    subBtns.innerHTML = subs.map((s,i)=>`<button onclick="setModalSub('${s}')" data-ms="${s}" style="padding:5px 11px;font-size:11px;font-weight:600;border-radius:20px;border:1.5px solid ${i===0?tc.c:'var(--brd)'};background:${i===0?tc.lt:'var(--surf2)'};color:${i===0?tc.c:'var(--txt2)'};cursor:pointer;transition:all .12s">${s}</button>`).join('');
+    // trigger extra fields for first subtype
+    setTimeout(()=>setModalSub(firstSub), 0);
+  } else if(subWrap){
+    subWrap.style.display = 'none';
+  }
+  // dist/pace labels
+  if(t==='swim'){
+    document.getElementById('m-dist-lbl').textContent='Vzdialenosť';
+    document.getElementById('m-dist-u').textContent='m';
+    document.getElementById('m-pace-lbl').textContent='Tempo';
+    document.getElementById('m-pace-u').textContent='min/100m';
+  } else if(t==='bike'){
+    document.getElementById('m-dist-lbl').textContent='Vzdialenosť';
+    document.getElementById('m-dist-u').textContent='km';
+    document.getElementById('m-pace-lbl').textContent='Avg rýchlosť';
+    document.getElementById('m-pace-u').textContent='km/h';
+  } else {
+    document.getElementById('m-dist-lbl').textContent='Vzdialenosť';
+    document.getElementById('m-dist-u').textContent='km';
+    document.getElementById('m-pace-lbl').textContent='Avg pace';
+    document.getElementById('m-pace-u').textContent='min/km';
+  }
+}
+
+const MODAL_EXTRA = {
+  run_Intervaly:{t:'Intervalový tréning',f:[
+    {id:'reps',l:'Počet opakovaní',p:'napr. 6'},
+    {id:'rdist',l:'Dĺžka opakovania',p:'napr. 800 m'},
+    {id:'rpace',l:'Tempo Z4',p:'napr. 5:10 min/km'},
+    {id:'rrest',l:'Pauza medzi',p:'napr. 2 min poklus'},
+    {id:'rwu',l:'Rozcvičenie',p:'napr. 15 min Z2'},
+    {id:'rcd',l:'Zachladenie',p:'napr. 10 min Z1'}
+  ]},
+  run_Tempový:{t:'Tempový beh',f:[
+    {id:'tdur',l:'Trvanie Z3 bloku',p:'napr. 20 min'},
+    {id:'tpace',l:'Tempo Z3',p:'napr. 6:20 min/km'},
+    {id:'twu',l:'Rozcvičenie Z2',p:'napr. 15 min'},
+    {id:'tcd',l:'Zachladenie Z1',p:'napr. 10 min'}
+  ]},
+  'swim_Bazén_25m':{t:'Plávanie – bazén 25m',f:[
+    {id:'sets',l:'Série',p:'napr. 5×200m'},
+    {id:'pause',l:'Pauza medzi sériami',p:'napr. 20s'},
+    {id:'tech',l:'Technika / focus',p:'napr. záber, práca nôh'}
+  ]},
+  'swim_Bazén_50m':{t:'Plávanie – bazén 50m',f:[
+    {id:'sets',l:'Série',p:'napr. 4×400m'},
+    {id:'pause',l:'Pauza',p:'napr. 30s'},
+    {id:'tech',l:'Technika / focus',p:'napr. kraul tempo'}
+  ]},
+  swim_Otvorená_voda:{t:'Otvorená voda',f:[
+    {id:'wetsuit',l:'Neoprén',p:'áno / nie'},
+    {id:'wtemp',l:'Teplota vody',p:'napr. 18°C'},
+    {id:'wcond',l:'Podmienky',p:'napr. vlny, viditeľnosť'},
+    {id:'wnav',l:'Orientácia',p:'napr. boje, bod na brehu'}
+  ]},
+  bike_Z2:{t:'Bike – výživa a výkon',f:[
+    {id:'bnut',l:'Výživa (géle/jedlo)',p:'napr. 3 géle každých 20min'},
+    {id:'bdrink',l:'Tekutiny',p:'napr. 1.5L izotonický'},
+    {id:'bspd',l:'Avg rýchlosť',p:'napr. 28.5 km/h'}
+  ]},
+  bike_Tempový:{t:'Bike tempový',f:[
+    {id:'bspd',l:'Avg rýchlosť',p:'napr. 32 km/h'},
+    {id:'bnut',l:'Výživa',p:'napr. 2 géle'},
+    {id:'bterr',l:'Terén',p:'napr. rovinatý / kopce'}
+  ]},
+  bike_Kopce:{t:'Bike – kopce',f:[
+    {id:'belev',l:'Prevýšenie',p:'napr. 650 m'},
+    {id:'bclimb',l:'Najdlhší výstup',p:'napr. 8 km / 5%'},
+    {id:'bnut',l:'Výživa',p:'napr. 3 géle + tyčinka'},
+    {id:'bdrink',l:'Tekutiny',p:'napr. 1.5L'}
+  ]},
+  'brick_Bike + Beh':{t:'Brick – detaily prechodu',f:[
+    {id:'bkdist',l:'Bike vzdialenosť',p:'napr. 40 km'},
+    {id:'bktime',l:'Bike čas',p:'napr. 1:20'},
+    {id:'rndist',l:'Beh vzdialenosť',p:'napr. 5 km'},
+    {id:'rntime',l:'Beh čas',p:'napr. 28 min'},
+    {id:'t2',l:'Prechod T2',p:'napr. 1:20 min'},
+    {id:'legs',l:'Pocit nôh (1–10)',p:'napr. 6'}
+  ]},
+  str_Sila_A:{t:'Sila A – záznamy',f:[
+    {id:'plank',l:'Plank (čas)',p:'napr. 3×70s'},
+    {id:'hip',l:'Hip thrust',p:'napr. 3×12 × 40kg'},
+    {id:'sfeel',l:'Pocit (1–10)',p:'napr. 8'}
+  ]},
+  str_Sila_B:{t:'Sila B – záznamy',f:[
+    {id:'bench',l:'Bench / push-up',p:'napr. 3×12 × 60kg'},
+    {id:'row',l:'Cable row',p:'napr. 3×12 × 45kg'},
+    {id:'sfeel',l:'Pocit (1–10)',p:'napr. 8'}
+  ]},
+  str_Sila_C:{t:'Sila C – záznamy',f:[
+    {id:'squat',l:'Bul. drepy',p:'napr. 3×8 × 30kg'},
+    {id:'rdl',l:'RDL',p:'napr. 3×10 × 50kg'},
+    {id:'calf',l:'Lýtka',p:'napr. 3×15'},
+    {id:'sfeel',l:'Pocit (1–10)',p:'napr. 8'}
+  ]}
+};
+
+function setModalSub(s){
+  document.getElementById('m-sub').value = s;
+  const t = document.getElementById('m-type').value;
+  const tc = TC[t]||TC.rest;
+  document.querySelectorAll('#modal-sub-btns button').forEach(b=>{
+    const a = b.dataset.ms===s;
+    b.style.background = a ? tc.lt : 'var(--surf2)';
+    b.style.borderColor = a ? tc.c : 'var(--brd)';
+    b.style.color = a ? tc.c : 'var(--txt2)';
+  });
+  // extra fields
+  const key = t+'_'+s.replace(/ /g,'_').replace(/\+/g,'+');
+  const ex = MODAL_EXTRA[key];
+  const wrap = document.getElementById('m-extra-wrap');
+  const cont = document.getElementById('m-extra-fields');
+  if(ex && wrap && cont){
+    wrap.style.display='';
+    document.getElementById('m-extra-title').textContent = ex.t;
+    const cols = ex.f.length >= 4 ? 'mg4' : ex.f.length === 3 ? 'mg3' : 'mg2';
+    cont.innerHTML = `<div class="mg ${cols}">${ex.f.map(f=>`
+      <div class="mfield">
+        <div class="mflbl">${f.l}</div>
+        <input type="text" class="mfi" id="mx-${f.id}" placeholder="${f.p}">
+      </div>`).join('')}</div>`;
+  } else if(wrap){
+    wrap.style.display='none';
+  }
+}
+
+function setMLoc(l){
+  curMloc=l;
+  document.querySelectorAll('#m-loc-chips .mchip').forEach(c=>{
+    const a=c.dataset.ml===l;
+    c.style.background=a?'#0f172a':'var(--surf2)';c.style.color=a?'#fff':'var(--txt2)';c.style.borderColor=a?'#0f172a':'var(--brd)';
+  });
+}
+function setMPar(p){
+  curMpar=p;
+  document.querySelectorAll('#m-par-chips .mchip').forEach(c=>{
+    const a=c.dataset.mp===p;
+    c.style.background=a?'#0f172a':'var(--surf2)';c.style.color=a?'#fff':'var(--txt2)';c.style.borderColor=a?'#0f172a':'var(--brd)';
+  });
+}
+function setMFeel(v){
+  curFeel=v;
+  document.querySelectorAll('#m-stars .mstar').forEach((s,i)=>{s.textContent=i<v?'★':'☆';s.classList.toggle('on',i<v);});
+}
+function updMZ(){
+  const z1=parseInt(document.getElementById('m-z1')?.value)||0,z2=parseInt(document.getElementById('m-z2')?.value)||0,z3=parseInt(document.getElementById('m-z3')?.value)||0,z4=parseInt(document.getElementById('m-z4')?.value)||0;
+  const t=z1+z2+z3+z4;
+  const bar=document.getElementById('m-zbar'),tot=document.getElementById('m-ztot');
+  if(!bar)return;
+  if(!t){bar.innerHTML='';tot.textContent='';return;}
+  bar.innerHTML=(z1?`<div style="flex:${z1};background:#06b6d4"></div>`:'')+
+    (z2?`<div style="flex:${z2};background:#3b82f6"></div>`:'')+
+    (z3?`<div style="flex:${z3};background:#f59e0b"></div>`:'')+
+    (z4?`<div style="flex:${z4};background:#dc2626"></div>`:'');
+  tot.textContent=t===100?'✓ 100%':`${t}%${t>100?' (!)':''}`;
+  tot.style.color=t===100?'#16a34a':t>100?'#dc2626':'#d97706';
+}
+
+function saveModal(){
+  if(!modalDate) return;
+  // collect extra fields
+  const extraObj = {};
+  const t = document.getElementById('m-type')?.value||'run';
+  const sub = document.getElementById('m-sub')?.value||'';
+  const key = t+'_'+sub.replace(/ /g,'_').replace(/\+/g,'+');
+  const ex = MODAL_EXTRA[key];
+  if(ex) ex.f.forEach(f=>{
+    const el=document.getElementById('mx-'+f.id);
+    if(el&&el.value) extraObj[f.l]=el.value;
+  });
+  const s={
+    id:Date.now(),date:modalDate,
+    phase:document.getElementById('m-phase')?.value||'pre',
+    type:t, sub:sub,
+    dist:document.getElementById('m-dist')?.value||'',
+    time:document.getElementById('m-time')?.value||'',
+    pace:document.getElementById('m-pace')?.value||'',
+    hrA:document.getElementById('m-hr-a')?.value||'',
+    hrM:document.getElementById('m-hr-m')?.value||'',
+    kc:document.getElementById('m-kc')?.value||'',
+    z1:document.getElementById('m-z1')?.value||'0',
+    z2:document.getElementById('m-z2')?.value||'0',
+    z3:document.getElementById('m-z3')?.value||'0',
+    z4:document.getElementById('m-z4')?.value||'0',
+    loc:curMloc,par:curMpar,feel:curFeel,
+    note:document.getElementById('m-note')?.value||'',
+    extra:extraObj
+  };
+  sessions.unshift(s); save();
+  closeModal();
+  renders[curView]?.();
+  if(curView!=='home') renderHome();
+}
+
+function delSModal(id){
+  sessions=sessions.filter(s=>s.id!==id); save();
+  if(modalDate) openDayModal(modalDate);
+  renders[curView]?.();
+}
+
+function closeModal(e){
+  if(e && e.target!==document.getElementById('modal')) return;
+  document.getElementById('modal').style.display='none';
+  modalDate=null;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LOG VIEW
+// ═══════════════════════════════════════════════════════════════════════════
+function renderLog(){
+  const q = (document.getElementById('log-search')?.value||'').toLowerCase();
+  let f = logPhase==='all' ? [...sessions] : sessions.filter(s=>s.phase===logPhase);
+  if(q) f=f.filter(s=>(s.type+s.sub+s.loc+s.note+s.date+s.par).toLowerCase().includes(q));
+
+  let km=0,sw=0,bk=0,kc=0;
+  f.forEach(s=>{const d=parseFloat(s.dist)||0;if(s.type==='swim')sw+=d;else if(s.type==='bike')bk+=d;else km+=d;kc+=parseInt(s.kc)||0;});
+
+  const phases=['all','pre','1','2','3','4','5'];
+  const phaseLabels={'all':'Všetky','pre':'Pre-s.','1':'Fáza 1','2':'Fáza 2','3':'Fáza 3','4':'Fáza 4','5':'Taper'};
+
+  document.getElementById('view-log').innerHTML = `
+    <div class="log-filters">
+      ${phases.map(p=>`<div class="lfil${p===logPhase?' active':''}" onclick="setLogPhase('${p}')">${phaseLabels[p]}</div>`).join('')}
+    </div>
+    <div class="search-wrap">
+      <span class="search-ico">🔍</span>
+      <input type="text" class="search-inp" id="log-search" placeholder="Hľadať..." value="${q}" oninput="renderLog()">
+    </div>
+    <div class="log-tools">
+      <div class="tool-btn${isCompact?' active-tool':''}" onclick="isCompact=!isCompact;renderLog()">☰ Kompakt</div>
+      <div class="tool-btn" onclick="exXL()">⬇ Excel</div>
+      <label class="tool-btn" style="cursor:pointer">⌚ Garmin<input type="file" accept=".fit,.gpx,.tcx" style="display:none" onchange="importGarminLog(this,event)"></label>
+    </div>
+    <div class="sum-bar">
+      <div class="sum-grid">
+        <div class="sm r"><div class="sm-val">${km.toFixed(1)}</div><div class="sm-lbl">km beh</div></div>
+        <div class="sm s"><div class="sm-val">${Math.round(sw).toLocaleString()}</div><div class="sm-lbl">m plávanie</div></div>
+        <div class="sm b"><div class="sm-val">${bk.toFixed(1)}</div><div class="sm-lbl">km bike</div></div>
+        <div class="sm br"><div class="sm-val">${f.length}</div><div class="sm-lbl">tréningov</div></div>
+        <div class="sm k"><div class="sm-val">${kc.toLocaleString()}</div><div class="sm-lbl">kcal</div></div>
+      </div>
+    </div>
+    ${f.length ? f.map(s=>mkCard(s)).join('') : '<div class="empty-state"><div class="empty-ico">🏁</div><div class="empty-txt">Žiadne tréningy</div></div>'}`;
+}
+
+function setLogPhase(p){ logPhase=p; renderLog(); }
+
+function mkCard(s){
+  const tc=TC[s.type]||TC.rest,pc=PC[s.phase]||'#888',pl=PL[s.phase]||s.phase;
+  const z1=parseInt(s.z1)||0,z2=parseInt(s.z2)||0,z3=parseInt(s.z3)||0,z4=parseInt(s.z4)||0;
+  const hasZ=z1+z2+z3+z4>0;
+  const ms=[];
+  if(s.dist)ms.push({v:s.dist+(s.type==='swim'?'m':'km'),l:s.type==='swim'?'vzd.':'vzd.'});
+  if(s.time)ms.push({v:s.time,l:'čas'});
+  if(s.pace)ms.push({v:s.pace,l:s.type==='swim'?'min/100m':s.type==='bike'?'km/h':'min/km'});
+  if(s.hrA)ms.push({v:s.hrA,l:'avg HR'});
+  if(s.hrM)ms.push({v:s.hrM,l:'max HR'});
+  if(s.kc)ms.push({v:parseInt(s.kc).toLocaleString(),l:'kcal'});
+  const mc=ms.length>=4?'mc4':ms.length===3?'mc3':'mc2';
+  const mH=ms.map(m=>`<div class="mc" style="background:var(--surf);border-color:${tc.br}"><div class="mc-val" style="color:${tc.c}">${m.v}</div><div class="mc-lbl" style="color:${tc.c}">${m.l}</div></div>`).join('');
+  const isPR = s.id===prs.runPaceId||s.id===prs.bikeDistId||s.id===prs.swimDistId||s.id===prs.runDistId;
+  const tags=[];
+  if(z2>=75)tags.push(`<span class="sc-tag" style="background:var(--bike-lt);color:#15803d;border:1px solid var(--bike-br)">Z2 ✓</span>`);
+  else if(z2>0&&z2<75)tags.push(`<span class="sc-tag" style="background:var(--str-lt);color:#b45309;border:1px solid var(--str-br)">Z2 ${z2}%</span>`);
+  if(s.par==='Marcus')tags.push(`<span class="sc-tag" style="background:#ede9fe;color:#7c3aed;border:1px solid #ddd6fe">s Marcusom</span>`);
+
+  if(isCompact) return `<div class="scard" style="border-color:${tc.br}">
+    <div class="sc-top" style="background:${tc.lt};padding:10px 12px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:20px">${tc.ico}</span>
+        <div style="flex:1">
+          <div style="font-size:12px;font-weight:700;color:var(--txt)">${tc.lbl}${s.sub?' · '+s.sub:''}${isPR?' <span class="sc-pr">🏆 PR</span>':''}</div>
+          <div style="font-size:11px;color:var(--txt2)">${fmtDateDisp(s.date)} · ${s.time||'–'}${s.dist?' · '+s.dist+(s.type==='swim'?'m':'km'):''}${s.hrA?' · '+s.hrA+' bpm':''} · ${s.loc||''}</div>
+        </div>
+        <div style="display:flex;gap:2px">${[1,2,3,4,5].map(i=>`<span style="font-size:12px;cursor:pointer;color:${i<=(s.feel||0)?'#f59e0b':'var(--brd2)'}" onclick="setFeel(${s.id},${i})">★</span>`).join('')}</div>
+        <button class="btn-del" onclick="delS(${s.id})">×</button>
+      </div>
+      ${ms.length?`<div class="mc-grid ${mc}" style="margin-top:8px">${mH}</div>`:''}
+    </div>
+  </div>`;
+
+  return `<div class="scard" style="border-color:${tc.br}">
+    <div class="sc-top" style="background:${tc.lt}">
+      <div class="sc-hdr">
+        <div>
+          <div class="sc-badge" style="background:${tc.c}">${tc.ico} ${tc.lbl}${s.sub?' · '+s.sub:''}${isPR?` <span style="font-size:8px;background:rgba(255,255,255,.3);padding:1px 5px;border-radius:8px">PR</span>`:''}</div>
+          <div class="sc-title">${fmtDateDisp(s.date)}</div>
+          <div class="sc-meta">${s.time?s.time+' · ':''}${s.loc||''}</div>
+        </div>
+        <span class="sc-ph" style="background:${pc}">${pl}</span>
+      </div>
+      ${ms.length?`<div class="mc-grid ${mc}">${mH}</div>`:''}
+      ${hasZ?`<div class="zbar-sc">${z1?`<div style="flex:${z1};background:#06b6d4"></div>`:''
+        }${z2?`<div style="flex:${z2};background:#3b82f6"></div>`:''
+        }${z3?`<div style="flex:${z3};background:#f59e0b"></div>`:''
+        }${z4?`<div style="flex:${z4};background:#dc2626"></div>`:''}</div>
+        <div class="zleg-sc">${z1?`<div class="zl-item" style="color:#0891b2"><div class="zdot" style="background:#06b6d4"></div>Z1 · ${z1}%</div>`:''
+          }${z2?`<div class="zl-item" style="color:#2563eb"><div class="zdot" style="background:#3b82f6"></div>Z2 · ${z2}%</div>`:''
+          }${z3?`<div class="zl-item" style="color:#d97706"><div class="zdot" style="background:#f59e0b"></div>Z3 · ${z3}%</div>`:''
+          }${z4?`<div class="zl-item" style="color:#dc2626"><div class="zdot" style="background:#dc2626"></div>Z4 · ${z4}%</div>`:''}</div>`:''}
+      ${tags.length?`<div class="sc-tags">${tags.join('')}</div>`:''}
+      ${s.note?`<div class="sc-note" style="background:rgba(255,255,255,.6);border-color:${tc.c}">${s.note}</div>`:''}
+    </div>
+    <div class="sc-footer" style="border-color:${tc.br};background:var(--surf)">
+      <div style="font-size:11px;font-weight:600;color:${tc.c}">${tc.ico} ${s.loc||''}${s.par==='Marcus'?' · s Marcusom':''}</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="sc-stars">${[1,2,3,4,5].map(i=>`<span class="sc-star${i<=(s.feel||0)?' on':''}" onclick="setFeel(${s.id},${i})">★</span>`).join('')}</div>
+        <button class="btn-del" onclick="delS(${s.id})">×</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function setFeel(id,v){ const s=sessions.find(x=>x.id===id);if(!s)return;s.feel=v;save();renderLog(); }
+function delS(id){ sessions=sessions.filter(s=>s.id!==id);save();renderLog(); }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PROGRESS VIEW
+// ═══════════════════════════════════════════════════════════════════════════
+function renderProgress(){
+  document.getElementById('view-progress').innerHTML=`
+    <div class="chart-card">
+      <div class="card-title">Progres behu</div>
+      <div class="card-sub">Z2 pace v čase — klesajúci trend = zlepšenie formy</div>
+      <div class="chart-tabs">
+        ${[['pace','Pace (beh)'],['hr','Avg HR'],['dist','Vzdialenosť'],['kcal','Kcal']].map(([k,l])=>`<div class="ctab${chartMetric===k?' active':''}" onclick="setChartM('${k}')">${l}</div>`).join('')}
+      </div>
+      <div class="chart-wrap" id="cw1"><canvas id="cc1"></canvas></div>
+      <div class="chart-legend" id="cl1"></div>
+    </div>
+    <div class="chart-card">
+      <div class="card-title">Objem tréningov</div>
+      <div class="card-sub">Km beh a bike po týždňoch</div>
+      <div class="chart-wrap" id="cw2"><canvas id="cc2"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="card-title">Osobné rekordy</div>
+      <div class="card-sub">Aktuálne maxima za celú prípravu</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        ${[
+          {ico:'🏃',lbl:'Najrýchlejší beh Z2',val:prs.runPace?`${Math.floor(prs.runPace/60)}:${String(Math.round(prs.runPace%60)).padStart(2,'0')} min/km`:'–'},
+          {ico:'🏃',lbl:'Najdlhší beh',val:prs.runDist?prs.runDist.toFixed(1)+' km':'–'},
+          {ico:'🚴',lbl:'Najdlhší bike',val:prs.bikeDist?prs.bikeDist.toFixed(1)+' km':'–'},
+          {ico:'🏊',lbl:'Najdlhšie plávanie',val:prs.swimDist?Math.round(prs.swimDist)+' m':'–'},
+        ].map(r=>`<div style="background:var(--surf2);border-radius:10px;padding:12px;border:1px solid var(--brd)">
+          <div style="font-size:18px;margin-bottom:4px">${r.ico}</div>
+          <div style="font-size:11px;color:var(--txt3);margin-bottom:2px">${r.lbl}</div>
+          <div style="font-size:16px;font-weight:700;color:var(--txt)">${r.val}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  drawChart1(); drawChart2();
+}
+
+function setChartM(m){ chartMetric=m; renderProgress(); }
+
+function getCanvasCtx(id,h){
+  const c=document.getElementById(id);if(!c)return null;
+  c.width=c.parentNode.offsetWidth||600;c.height=h||180;return c.getContext('2d');
+}
+
+function drawChart1(){
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  const tc2=isDark?'#475569':'#94a3b8',gc=isDark?'#1e293b':'#f1f5f9';
+  const rel=sessions.filter(s=>{
+    if(chartMetric==='pace') return s.type==='run'&&s.pace&&paceToSec(s.pace)>0;
+    if(chartMetric==='hr') return s.hrA&&parseInt(s.hrA)>0;
+    if(chartMetric==='dist') return s.dist&&parseFloat(s.dist)>0;
+    if(chartMetric==='kcal') return s.kc&&parseInt(s.kc)>0;
+    return false;
+  }).slice().sort((a,b)=>a.date.localeCompare(b.date));
+  if(rel.length<2){document.getElementById('cw1').innerHTML='<div class="chart-empty"><div style="font-size:24px">📊</div><div>Pridaj viac tréningov pre zobrazenie grafu</div></div>';return;}
+  const ctx=getCanvasCtx('cc1',180);if(!ctx)return;
+  const W=ctx.canvas.width,H=ctx.canvas.height,pad={t:16,r:16,b:28,l:48};
+  const gW=W-pad.l-pad.r,gH=H-pad.t-pad.b;
+  const vals=rel.map(s=>chartMetric==='pace'?paceToSec(s.pace):chartMetric==='hr'?parseInt(s.hrA):chartMetric==='dist'?parseFloat(s.dist):parseInt(s.kc));
+  const minV=Math.min(...vals)*0.95,maxV=Math.max(...vals)*1.05;
+  const xStep=gW/Math.max(vals.length-1,1);
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<=4;i++){
+    const y=pad.t+gH*(1-i/4);
+    ctx.strokeStyle=gc;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+gW,y);ctx.stroke();
+    const v=minV+(maxV-minV)*(i/4);
+    ctx.fillStyle=tc2;ctx.font='10px system-ui';ctx.textAlign='right';
+    ctx.fillText(chartMetric==='pace'?`${Math.floor(v/60)}:${String(Math.round(v%60)).padStart(2,'0')}`:Math.round(v),pad.l-4,y+4);
+  }
+  const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+gH);
+  grad.addColorStop(0,'rgba(59,130,246,.25)');grad.addColorStop(1,'rgba(59,130,246,.02)');
+  ctx.beginPath();
+  vals.forEach((v,i)=>{const x=pad.l+i*xStep,y=pad.t+gH*(1-(v-minV)/(maxV-minV));i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.lineTo(pad.l+(vals.length-1)*xStep,pad.t+gH);ctx.lineTo(pad.l,pad.t+gH);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();ctx.strokeStyle='#3b82f6';ctx.lineWidth=2.5;ctx.lineJoin='round';
+  vals.forEach((v,i)=>{const x=pad.l+i*xStep,y=pad.t+gH*(1-(v-minV)/(maxV-minV));i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});ctx.stroke();
+  vals.forEach((v,i)=>{
+    const x=pad.l+i*xStep,y=pad.t+gH*(1-(v-minV)/(maxV-minV));
+    ctx.beginPath();ctx.arc(x,y,3.5,0,Math.PI*2);ctx.fillStyle='#3b82f6';ctx.fill();ctx.strokeStyle='var(--surf)';ctx.lineWidth=1.5;ctx.stroke();
+    if(i%Math.ceil(vals.length/6)===0||i===vals.length-1){
+      const d=rel[i].date.split('-');ctx.fillStyle=tc2;ctx.font='9px system-ui';ctx.textAlign='center';ctx.fillText(`${d[2]}.${d[1]}`,x,H-4);
+    }
+  });
+  if(vals.length>2){
+    const n=vals.length,sx=vals.map((_,i)=>i).reduce((a,b)=>a+b),sy=vals.reduce((a,b)=>a+b);
+    const sx2=vals.map((_,i)=>i*i).reduce((a,b)=>a+b),sxy=vals.map((v,i)=>v*i).reduce((a,b)=>a+b);
+    const m=(n*sxy-sx*sy)/(n*sx2-sx*sx),b2=(sy-m*sx)/n;
+    ctx.beginPath();ctx.strokeStyle='rgba(234,88,12,.5)';ctx.lineWidth=1.5;ctx.setLineDash([4,4]);
+    ctx.moveTo(pad.l,pad.t+gH*(1-(m*0+b2-minV)/(maxV-minV)));ctx.lineTo(pad.l+gW,pad.t+gH*(1-(m*(n-1)+b2-minV)/(maxV-minV)));ctx.stroke();ctx.setLineDash([]);
+  }
+  const leg=document.getElementById('cl1');
+  if(leg)leg.innerHTML=`<div class="cl-item"><div class="cl-dot" style="background:#3b82f6"></div>Hodnoty</div><div class="cl-item"><div class="cl-dot" style="background:#ea580c"></div>Trend</div>`;
+}
+
+function drawChart2(){
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  const tc2=isDark?'#475569':'#94a3b8',gc=isDark?'#1e293b':'#f1f5f9';
+  const wkMap={};
+  sessions.forEach(s=>{
+    if(!s.date)return;const d=new Date(s.date);
+    const wk=`${d.getFullYear()}-${String(Math.ceil((d-new Date(d.getFullYear(),0,1))/604800)+1).padStart(2,'0')}`;
+    if(!wkMap[wk])wkMap[wk]={km:0,bk:0};
+    const dist=parseFloat(s.dist)||0;
+    if(s.type==='bike')wkMap[wk].bk+=dist;else if(s.type==='run'||s.type==='brick')wkMap[wk].km+=dist;
+  });
+  const wks=Object.keys(wkMap).sort();
+  if(wks.length<2){document.getElementById('cw2').innerHTML='<div class="chart-empty"><div style="font-size:24px">📊</div><div>Pridaj viac tréningov</div></div>';return;}
+  const ctx=getCanvasCtx('cc2',180);if(!ctx)return;
+  const W=ctx.canvas.width,H=ctx.canvas.height,pad={t:16,r:16,b:28,l:40};
+  const gW=W-pad.l-pad.r,gH=H-pad.t-pad.b;
+  const maxKm=Math.max(...wks.map(w=>wkMap[w].km+wkMap[w].bk),1);
+  const bW=Math.max(3,Math.floor(gW/wks.length/3));
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<=4;i++){
+    const y=pad.t+gH*(1-i/4);ctx.strokeStyle=gc;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+gW,y);ctx.stroke();
+    ctx.fillStyle=tc2;ctx.font='10px system-ui';ctx.textAlign='right';ctx.fillText(Math.round(maxKm*i/4),pad.l-4,y+4);
+  }
+  const xStep=gW/wks.length;
+  wks.forEach((wk,i)=>{
+    const x=pad.l+i*xStep+xStep/2,d=wkMap[wk];
+    if(d.bk>0){const h=(d.bk/maxKm)*gH;ctx.fillStyle='rgba(21,128,61,.6)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-bW-1,pad.t+gH-h,bW,h,2);else ctx.rect(x-bW-1,pad.t+gH-h,bW,h);ctx.fill();}
+    if(d.km>0){const h=(d.km/maxKm)*gH;ctx.fillStyle='rgba(234,88,12,.7)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x+1,pad.t+gH-h,bW,h,2);else ctx.rect(x+1,pad.t+gH-h,bW,h);ctx.fill();}
+    if(i%Math.ceil(wks.length/6)===0){ctx.fillStyle=tc2;ctx.font='9px system-ui';ctx.textAlign='center';ctx.fillText('T'+(i+1),x,H-4);}
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// WEEKLY VIEW
+// ═══════════════════════════════════════════════════════════════════════════
+function renderWeekly(){
+  const wk = PLAN_WEEKS[wkIdx];
+  const key = 'wk'+wk.n;
+  const wd = wkMeta[key]||{};
+  const DAYS=['Po','Ut','St','Št','Pi','So','Ne'];
+  const wkStart = new Date(PREP_START);
+  wkStart.setDate(wkStart.getDate()+(wk.n-1)*7);
+  const wkSess = sessions.filter(s=>{
+    const d=new Date(s.date);d.setHours(0,0,0,0);
+    const end=new Date(wkStart);end.setDate(end.getDate()+6);
+    return d>=wkStart&&d<=end;
+  });
+  const runSess = wkSess.filter(s=>s.type==='run');
+  const avgZ2 = runSess.length?Math.round(runSess.reduce((a,s)=>a+(parseInt(s.z2)||0),0)/runSess.length):0;
+  const z2Warn = avgZ2>0&&avgZ2<70;
+  const km=wkSess.reduce((a,s)=>a+(s.type==='run'||s.type==='brick'?parseFloat(s.dist)||0:0),0);
+  const bk=wkSess.reduce((a,s)=>a+(s.type==='bike'?parseFloat(s.dist)||0:0),0);
+  const kc=wkSess.reduce((a,s)=>a+(parseInt(s.kc)||0),0);
+  const hrA=runSess.length?Math.round(runSess.reduce((a,s)=>a+(parseInt(s.hrA)||0),0)/runSess.length):0;
+
+  const daysHTML=DAYS.map((d,i)=>{
+    const dayD=new Date(wkStart);dayD.setDate(dayD.getDate()+i);
+    const key2=fmtDate(dayD,true);
+    const dayS=wkSess.filter(s=>s.date===key2);
+    const hasSess=dayS.length>0;
+    const isPast=dayD<=TODAY;
+    const planT=wk.types[i];
+    const tc2=hasSess?(TC[dayS[0].type]||TC.rest):(TC[planT]||TC.rest);
+    const isMissed=isPast&&!hasSess&&planT!=='rest'&&dayD>=PREP_START;
+    return `<div class="wk-day-cell${hasSess?' has-sess':''}${isMissed?' missed-cell':''}" style="${hasSess?`background:${tc2.lt};border-color:${tc2.br}`:''}" onclick="openDayModal('${key2}')">
+      <div class="wkd-name">${d}</div>
+      <div class="wkd-ico">${hasSess?tc2.ico:tc2.ico}</div>
+      <div class="wkd-lbl">${hasSess?(dayS[0].dist||tc2.lbl):wk.days[i].split('·')[0].trim().slice(0,10)}</div>
+    </div>`;
+  }).join('');
+
+  const feelStars=(field,val)=>[1,2,3,4,5].map(i=>`<span class="feel-star${i<=(wd[field]||0)?' on':''}" onclick="setWkFeel('${key}','${field}',${i})">${i<=(wd[field]||0)?'★':'☆'}</span>`).join('');
+
+  document.getElementById('view-weekly').innerHTML=`
+    <div class="wk-nav">
+      <div class="wk-nav-btn" onclick="wkIdx=Math.max(0,wkIdx-1);renderWeekly()">‹</div>
+      <div class="wk-nav-title">Týždeň ${wk.n} · ${wk.d}</div>
+      <div class="wk-nav-btn" onclick="wkIdx=Math.min(19,wkIdx+1);renderWeekly()">›</div>
+    </div>
+    <div class="card">
+      <div class="card-pad">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="card-title">Týždeň ${wk.n}</div>
+          <span style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;color:#fff;background:${PC[wk.phase]||'#888'}">${PLF[wk.phase]||''}</span>
+        </div>
+        ${z2Warn?`<div class="z2-warn">⚠️ Avg Z2 tento týždeň: ${avgZ2}% — cieľ je 80%+</div>`:''}
+        <div class="wk-days-row">${daysHTML}</div>
+        <div class="wk-stats4">
+          <div class="wks"><div class="wks-val">${km.toFixed(1)}</div><div class="wks-lbl">km beh</div></div>
+          <div class="wks"><div class="wks-val">${bk.toFixed(1)}</div><div class="wks-lbl">km bike</div></div>
+          <div class="wks"><div class="wks-val">${hrA||'–'}</div><div class="wks-lbl">avg HR</div></div>
+          <div class="wks"><div class="wks-val">${kc||'–'}</div><div class="wks-lbl">kcal</div></div>
+        </div>
+        <div class="feel-row"><div class="feel-lbl">Únava</div><div class="feel-stars">${feelStars('fatigue',wd.fatigue||0)}</div></div>
+        <div class="feel-row"><div class="feel-lbl">Motivácia</div><div class="feel-stars">${feelStars('motivation',wd.motivation||0)}</div></div>
+        <div class="feel-row"><div class="feel-lbl">Spánok</div><div class="feel-stars">${feelStars('sleep',wd.sleep||0)}</div></div>
+        <textarea class="wk-note-inp" id="wk-note-field" rows="2" placeholder="Ako prebehol týždeň? Čo upraviť?">${wd.note||''}</textarea>
+        <div style="display:flex;gap:8px;margin-bottom:0">
+          <button class="btn-wk-save" onclick="saveWkNote('${key}')" style="flex:1">Uložiť zhrnutie</button>
+          <button onclick="aiWeeklyEval()" style="flex:1;padding:12px;font-size:13px;font-weight:700;border:none;border-radius:10px;background:linear-gradient(135deg,#1e3a5f,#312e81);color:#93c5fd;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">🤖 AI hodnotenie</button>
+        </div>
+        ${showLastAiEval(wk.n)}
+      </div>
+    </div>`;
+}
+
+function setWkFeel(key,field,v){
+  if(!wkMeta[key])wkMeta[key]={};
+  wkMeta[key][field]=v;saveWk();
+  const id='feel-'+field;
+  document.querySelectorAll('.feel-stars').forEach((row,ri)=>{
+    const labels=['fatigue','motivation','sleep'];
+    if(labels[ri]===field) row.querySelectorAll('.feel-star').forEach((s,i)=>{s.classList.toggle('on',i<v);s.textContent=i<v?'★':'☆';});
+  });
+}
+function saveWkNote(key){
+  if(!wkMeta[key])wkMeta[key]={};
+  wkMeta[key].note=document.getElementById('wk-note-field')?.value||'';
+  saveWk();
+  const btn=document.querySelector('.btn-wk-save');
+  if(btn){btn.textContent='✓ Uložené';setTimeout(()=>btn.textContent='Uložiť zhrnutie',2000);}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXCEL EXPORT
+// ═══════════════════════════════════════════════════════════════════════════
+function exXL(){
+  if(typeof XLSX==='undefined'){alert('XLSX sa načítava, skús znova.');return;}
+  const f=logPhase==='all'?sessions:sessions.filter(s=>s.phase===logPhase);
+  const rows=f.map(s=>({'Dátum':s.date,'Fáza':PLF[s.phase]||s.phase,'Typ':TC[s.type]?.lbl||s.type,'Subtyp':s.sub||'','Vzdialenosť':s.dist||'','Čas':s.time||'','Pace/Rýchlosť':s.pace||'','Avg HR':s.hrA||'','Max HR':s.hrM||'','Kcal':s.kc||'','Z1%':s.z1||0,'Z2%':s.z2||0,'Z3%':s.z3||0,'Z4%':s.z4||0,'Miesto':s.loc||'','Partner':s.par==='Marcus'?'s Marcusom':'Solo','Pocit (1-5)':s.feel||'','Poznámka':s.note||''}));
+  const ws2=XLSX.utils.json_to_sheet(rows);const wb2=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb2,ws2,'Zápisník');
+  XLSX.writeFile(wb2,`ironman_zapisnik.xlsx`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// GARMIN IMPORT
+// ═══════════════════════════════════════════════════════════════════════════
+function importGarminLog(inp){
+  const file=inp.files[0];if(!file)return;
+  const name=file.name.toLowerCase();
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      let data;
+      if(name.endsWith('.gpx'))data=parseGPX(e.target.result,file.name);
+      else if(name.endsWith('.tcx'))data=parseTCX(e.target.result,file.name);
+      else if(name.endsWith('.fit'))data=parseFIT(e.target.result,file.name);
+      if(data){ openDayModal(data.date||fmtDate(TODAY,true)); applyToModal(data); }
+    }catch(err){alert('Chyba pri importe: '+err.message);}
+    inp.value='';
+  };
+  name.endsWith('.fit')?reader.readAsArrayBuffer(file):reader.readAsText(file);
+}
+
+function importGarminModal(inp){
+  const file=inp.files[0];if(!file)return;
+  const name=file.name.toLowerCase();
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{
+      let data;
+      if(name.endsWith('.gpx'))data=parseGPX(e.target.result,file.name);
+      else if(name.endsWith('.tcx'))data=parseTCX(e.target.result,file.name);
+      else if(name.endsWith('.fit'))data=parseFIT(e.target.result,file.name);
+      if(data) applyToModal(data);
+    }catch(err){alert('Chyba: '+err.message);}
+    inp.value='';
+  };
+  name.endsWith('.fit')?reader.readAsArrayBuffer(file):reader.readAsText(file);
+}
+
+function applyToModal(data){
+  if(data.type) setModalType(data.type);
+  // Auto-select subtype if detected
+  if(data.sub){
+    setTimeout(()=>{
+      const subBtns = document.querySelectorAll('#modal-sub-btns button');
+      let matched = false;
+      subBtns.forEach(b=>{
+        if(b.dataset.ms===data.sub){ b.click(); matched=true; }
+      });
+      // If exact match not found, try partial
+      if(!matched){
+        subBtns.forEach(b=>{
+          if(!matched && b.dataset.ms && data.sub && b.dataset.ms.toLowerCase().includes(data.sub.split(' ')[0].toLowerCase())){ b.click(); matched=true; }
+        });
+      }
+    }, 50);
+  }
+  if(data.dist){const el=document.getElementById('m-dist');if(el)el.value=data.dist;}
+  if(data.time){const el=document.getElementById('m-time');if(el)el.value=data.time;}
+  if(data.pace){const el=document.getElementById('m-pace');if(el)el.value=data.pace;}
+  if(data.hrA){const el=document.getElementById('m-hr-a');if(el)el.value=data.hrA;}
+  if(data.hrM){const el=document.getElementById('m-hr-m');if(el)el.value=data.hrM;}
+  if(data.kc){const el=document.getElementById('m-kc');if(el)el.value=data.kc;}
+  ['z1','z2','z3','z4'].forEach(z=>{if(data[z]){const el=document.getElementById('m-'+z);if(el)el.value=data[z];}});
+  updMZ();
+  if(data.date&&document.getElementById('m-phase'))
+    document.getElementById('m-phase').value=getPhaseForDate(new Date(data.date));
+}
+
+// Garmin parsers
+function s2hm(s){const h=Math.floor(s/3600),m=Math.floor((s%3600)/60);return h>0?`${h}:${String(m).padStart(2,'0')}`:`0:${String(m).padStart(2,'0')}`;}
+function calcPaceStr(km,sec){if(!km||km<0.1)return'';const ps=sec/km;return`${Math.floor(ps/60)}:${String(Math.round(ps%60)).padStart(2,'0')}`;}
+function detType(sport){const s=(sport||'').toLowerCase();if(s.includes('swim')||s.includes('pool'))return'swim';if(s.includes('cycl')||s.includes('bike'))return'bike';if(s.includes('strength'))return'str';return'run';}
+
+function detSubtype(type, activityName, hrAvg, z3pct, z4pct){
+  // Detect subtype from activity name + HR data
+  const n = (activityName||'').toLowerCase();
+  const z3n = parseInt(z3pct)||0, z4n = parseInt(z4pct)||0;
+  const hr = parseInt(hrAvg)||0;
+
+  if(type==='run'){
+    if(n.includes('interval')||n.includes('interval')) return 'Intervaly';
+    if(n.includes('tempo')||n.includes('tempov')) return 'Tempový';
+    if(n.includes('long')||n.includes('dlh')||n.includes('long run')) return 'Dlhý beh';
+    if(n.includes('brick')||n.includes('t2')) return 'Brick-beh';
+    // Auto-detect from HR zones: if >15% in Z3/Z4 = tempo, if Z4>10% = intervals
+    if(z4n>10) return 'Intervaly';
+    if(z3n>20) return 'Tempový';
+    return 'Z2';
+  }
+  if(type==='swim'){
+    if(n.includes('open')||n.includes('ow')||n.includes('lake')||n.includes('jazero')||n.includes('otvorená')) return 'Otvorená voda';
+    if(n.includes('50')||n.includes('50m')) return 'Bazén 50m';
+    return 'Bazén 25m';
+  }
+  if(type==='bike'){
+    if(n.includes('brick')) return 'Brick-bike';
+    if(n.includes('tempo')||n.includes('tempov')||z3n>20) return 'Tempový';
+    if(n.includes('hill')||n.includes('kopec')||n.includes('kopce')) return 'Kopce';
+    return 'Z2';
+  }
+  if(type==='str'){
+    if(n.includes('a')||n.includes('core')||n.includes('plank')) return 'Sila A';
+    if(n.includes('b')||n.includes('upper')) return 'Sila B';
+    if(n.includes('c')||n.includes('leg')||n.includes('squat')) return 'Sila C';
+    return 'Sila A';
+  }
+  if(type==='brick') return 'Bike + Beh';
+  return '';
+}
+function calcZ(hrs){if(!hrs?.length)return{z1:'0',z2:'0',z3:'0',z4:'0'};let z1=0,z2=0,z3=0,z4=0;hrs.forEach(h=>{if(h<144)z1++;else if(h<=157)z2++;else if(h<=166)z3++;else z4++;});const t=hrs.length;return{z1:String(Math.round(z1/t*100)),z2:String(Math.round(z2/t*100)),z3:String(Math.round(z3/t*100)),z4:String(Math.round(z4/t*100))};}
+
+function parseGPX(xml,fname){
+  const doc=new DOMParser().parseFromString(xml,'text/xml');
+  const pts=[...doc.querySelectorAll('trkpt')];
+  let dist=0,hrs=[],startT=null,endT=null,prevLat=null,prevLon=null,date='';
+  const dateEl=doc.querySelector('metadata time')||doc.querySelector('time');
+  if(dateEl?.textContent) date=dateEl.textContent.split('T')[0];
+  pts.forEach(pt=>{
+    const lat=parseFloat(pt.getAttribute('lat')),lon=parseFloat(pt.getAttribute('lon'));
+    const t=pt.querySelector('time')?.textContent;const hr=parseInt(pt.querySelector('hr,gpxtpx\:hr,ns3\:hr')?.textContent||0);
+    if(hr>0)hrs.push(hr);if(t){const ts=new Date(t);if(!startT)startT=ts;endT=ts;if(!date)date=t.split('T')[0];}
+    if(prevLat!==null){const R=6371,dLa=(lat-prevLat)*Math.PI/180,dLo=(lon-prevLon)*Math.PI/180;const a=Math.sin(dLa/2)**2+Math.cos(prevLat*Math.PI/180)*Math.cos(lat*Math.PI/180)*Math.sin(dLo/2)**2;dist+=R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));}
+    prevLat=lat;prevLon=lon;
+  });
+  const sec=startT&&endT?(endT-startT)/1000:0;
+  const hrA=hrs.length?Math.round(hrs.reduce((a,b)=>a+b,0)/hrs.length):0;
+  const hrM=hrs.length?Math.max(...hrs):0;
+  const z=calcZ(hrs);const type=detType(doc.querySelector('type')?.textContent);
+  const actName=doc.querySelector('name')?.textContent||fname.replace(/\.gpx$/i,'')||'';
+  const sub=detSubtype(type,actName,hrA>0?String(hrA):'',z.z3,z.z4);
+  return{date,type,sub,dist:dist>0?dist.toFixed(type==='swim'?0:2):'',time:sec>0?s2hm(sec):'',pace:type!=='bike'&&dist>0&&sec>0?calcPaceStr(dist,sec):'',hrA:hrA>0?String(hrA):'',hrM:hrM>0?String(hrM):'',kc:'',...z};
+}
+
+function parseTCX(xml,fname){
+  const doc=new DOMParser().parseFromString(xml,'text/xml');
+  const sport=doc.querySelector('Activity')?.getAttribute('Sport')||'Running';
+  // Extract activity name from Notes or first Lap Notes
+  const actName = doc.querySelector('Notes')?.textContent || doc.querySelector('Activity Name')?.textContent || fname.replace(/\.tcx$/i,'') || '';
+  let date=doc.querySelector('Id')?.textContent?.split('T')[0]||'';
+  let dist=0,time=0,cal=0,hrs=[];
+  doc.querySelectorAll('Lap').forEach(l=>{dist+=parseFloat(l.querySelector('DistanceMeters')?.textContent||0);time+=parseFloat(l.querySelector('TotalTimeSeconds')?.textContent||0);cal+=parseFloat(l.querySelector('Calories')?.textContent||0);});
+  doc.querySelectorAll('HeartRateBpm Value').forEach(e=>{const v=parseInt(e.textContent||0);if(v>0)hrs.push(v);});
+  const km=dist/1000;const hrA=hrs.length?Math.round(hrs.reduce((a,b)=>a+b,0)/hrs.length):0;const hrM=hrs.length?Math.max(...hrs):0;
+  const z=calcZ(hrs);const type=detType(sport);
+  const sub=detSubtype(type,actName,hrA,z.z3,z.z4);
+  return{date,type,sub,dist:km>0?km.toFixed(type==='swim'?0:2):'',time:time>0?s2hm(time):'',pace:type!=='bike'&&km>0&&time>0?calcPaceStr(km,time):'',hrA:hrA>0?String(hrA):'',hrM:hrM>0?String(hrM):'',kc:cal>0?String(Math.round(cal)):'',...z};
+}
+
+function parseFIT(buf,fname){
+  const bytes=new Uint8Array(buf);let i=14;const defs={};
+  let dist=0,time=0,cal=0,hrA=0,hrM=0,date='',sport='running',hrs=[];
+  while(i<bytes.length-2){
+    const hdr=bytes[i];if(hdr&0x80){i+=2;continue;}
+    const isDef=(hdr&0x40)!==0,lmt=hdr&0x0F;
+    if(isDef){i++;const arch=bytes[i++];const gm=bytes[i]|(bytes[i+1]<<8);i+=2;const nf=bytes[i++];const fields=[];for(let f=0;f<nf;f++){fields.push({num:bytes[i],size:bytes[i+1]});i+=3;}defs[lmt]={gm,arch,fields};}
+    else{i++;const def=defs[lmt];if(!def){i++;continue;}
+      def.fields.forEach(f=>{
+        const v=f.size===1?bytes[i]:f.size===2?(def.arch===0?(bytes[i]|(bytes[i+1]<<8)):((bytes[i]<<8)|bytes[i+1])):f.size===4?(def.arch===0?((bytes[i]|(bytes[i+1]<<8)|(bytes[i+2]<<16)|(bytes[i+3]<<24))>>>0):(((bytes[i]<<24)|(bytes[i+1]<<16)|(bytes[i+2]<<8)|bytes[i+3])>>>0)):0;
+        if(def.gm===12&&f.num===0){if(v===2)sport='cycling';else if(v===5)sport='swimming';}
+        if(def.gm===18){if(f.num===9&&v<1e9)time=v/1000;if(f.num===5&&v<1e7)dist=v/100000;if(f.num===11&&v<10000)cal=v;if(f.num===16&&v<250)hrA=v;if(f.num===17&&v<250)hrM=v;if(f.num===2&&v>0&&v<0xFFFFFFFF){const d=new Date((v+631065600)*1000);date=d.toISOString().split('T')[0];}}
+        if(def.gm===20&&f.num===3&&v<250&&v>0)hrs.push(v);
+        i+=f.size;
+      });
+    }
+  }
+  if(!hrA&&hrs.length)hrA=Math.round(hrs.reduce((a,b)=>a+b,0)/hrs.length);
+  const z=hrs.length>10?calcZ(hrs):{z1:'0',z2:'0',z3:'0',z4:'0'};const type=detType(sport);
+  const sub=detSubtype(type,fname.replace(/\.fit$/i,''),hrA>0?String(hrA):'',z.z3,z.z4);
+  return{date,type,sub,dist:dist>0?dist.toFixed(type==='swim'?0:2):'',time:time>0?s2hm(time):'',pace:type!=='bike'&&dist>0&&time>0?calcPaceStr(dist,time):'',hrA:hrA>0?String(hrA):'',hrM:hrM>0?String(hrM):'',kc:cal>0?String(cal):'',...z};
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════════════════════════════
+function paceToSec(p){if(!p||!p.includes(':'))return 0;const pts=p.split(':');return parseInt(pts[0])*60+(parseInt(pts[1])||0);}
+function fmtDate(d,asKey=false){const dd=new Date(d);dd.setHours(0,0,0,0);const y=dd.getFullYear(),m=String(dd.getMonth()+1).padStart(2,'0'),day=String(dd.getDate()).padStart(2,'0');return asKey?`${y}-${m}-${day}`:`${day}.${m}.${y}`;}
+function fmtDateDisp(s){if(!s)return'–';const p=s.split('-');return`${p[2]}.${p[1]}.${p[0]}`;}
+function formatDateSk(d){const months=['január','február','marec','apríl','máj','jún','júl','august','september','október','november','december'];const days=['nedeľa','pondelok','utorok','streda','štvrtok','piatok','sobota'];return`${days[d.getDay()]}, ${d.getDate()}. ${months[d.getMonth()]} ${d.getFullYear()}`;}
+function getWkStart(d){const wd=(d.getDay()+6)%7;const start=new Date(d);start.setDate(start.getDate()-wd);start.setHours(0,0,0,0);return start;}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SPLASH & INIT
+// ═══════════════════════════════════════════════════════════════════════════
+setTimeout(()=>{
+  document.getElementById('splash').classList.add('hide');
+  const app=document.getElementById('app');app.style.opacity='1';
+  switchView('home');
+}, 1900);
+
+
+// ═══ PC OVERRIDES ══════════════════════════════════════════════════════════
+
+const PC_TITLES = {home:'Dashboard',planner:'Plán prípravy',log:'Zápisník tréningov',progress:'Progress & štatistiky',weekly:'Týždenné zhrnutie'};
+let logViewMode = 'cards';
+
+// Sidebar countdown
+(function(){
+  const diff = Math.ceil((RACE_DATE - TODAY) / 86400000);
+  const el = document.getElementById('sb-cd');
+  if(el) el.textContent = diff>0 ? diff+' dní do preteku' : '🏁 Race day!';
+})();
+
+// Override switchView
+function switchView(v){
+  curView = v;
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  const vEl = document.getElementById('view-'+v);
+  if(vEl) vEl.classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(b => b.classList.toggle('active', b.dataset.v===v));
+  const tb = document.getElementById('pc-tb-title');
+  if(tb) tb.textContent = PC_TITLES[v] || v;
+  const renderMap = {home:renderHome, planner:renderPlanner, log:renderLog, progress:renderProgress, weekly:renderWeekly};
+  renderMap[v]?.();
+  const scroll = document.querySelector('.pc-scroll');
+  if(scroll) scroll.scrollTop = 0;
+}
+
+// renderHome is fully self-contained above
+
+// renderPlanner is fully self-contained above — no override needed
+
+// Override renderLog for full width + table view
+const _rLog = renderLog;
+renderLog = function(){
+  const view = document.getElementById('view-log');
+  if(!view) return;
+  _rLog();
+  setTimeout(()=>{
+    const tools = document.querySelector('.log-tools');
+    if(tools && !tools.querySelector('.view-tog')){
+      const tog = document.createElement('div');
+      tog.className = 'view-tog';
+      tog.innerHTML = `<button class="vtbtn${logViewMode==='cards'?' active':''}" onclick="setLV('cards')">⊞ Karty</button><button class="vtbtn${logViewMode==='table'?' active':''}" onclick="setLV('table')">☰ Tabuľka</button>`;
+      tools.appendChild(tog);
+    }
+    if(logViewMode==='table') renderLogTbl();
+  }, 20);
+};
+
+function setLV(m){ logViewMode=m; renderLog(); }
+
+function renderLogTbl(){
+  const sw = document.getElementById('sw');
+  if(!sw) return;
+  const q=(document.getElementById('log-search')?.value||'').toLowerCase();
+  let f=logPhase==='all'?[...sessions]:sessions.filter(s=>s.phase===logPhase);
+  if(q) f=f.filter(s=>(s.type+s.sub+s.loc+s.note+s.date+s.par).toLowerCase().includes(q));
+  if(!f.length){sw.innerHTML='<div class="empty-state"><div class="empty-ico">🏁</div><div class="empty-txt">Žiadne tréningy</div></div>';return;}
+  sw.innerHTML=`<div class="card" style="overflow:hidden"><div style="overflow-x:auto"><table class="log-tbl"><thead><tr>
+    <th>Dátum</th><th>Typ</th><th>Dĺžka</th><th>Čas</th><th>Pace / HR</th><th>Kcal</th><th>Zóny</th><th>Miesto</th><th>Pocit</th><th></th>
+  </tr></thead><tbody>${f.map(s=>{
+    const tc2=TC[s.type]||TC.rest;
+    const z1=parseInt(s.z1)||0,z2=parseInt(s.z2)||0,z3=parseInt(s.z3)||0,z4=parseInt(s.z4)||0;
+    return`<tr onclick="openDayModal('${s.date}')">
+      <td style="font-weight:700;white-space:nowrap">${fmtDateDisp(s.date)}</td>
+      <td><span class="lbadge" style="background:${tc2.c}">${tc2.ico} ${tc2.lbl}${s.sub?' · '+s.sub:''}</span></td>
+      <td style="font-weight:600">${s.dist?s.dist+(s.type==='swim'?'m':'km'):'–'}</td>
+      <td>${s.time||'–'}</td>
+      <td>${s.pace||'–'}${s.hrA?' · <b>'+s.hrA+'</b>bpm':''}</td>
+      <td>${s.kc?parseInt(s.kc).toLocaleString()+' kcal':'–'}</td>
+      <td>${z1+z2+z3+z4>0?`<div class="lzbar">${z1?`<div style="flex:${z1};background:#06b6d4"></div>`:''}${z2?`<div style="flex:${z2};background:#3b82f6"></div>`:''}${z3?`<div style="flex:${z3};background:#f59e0b"></div>`:''}${z4?`<div style="flex:${z4};background:#dc2626"></div>`:''}</div>`:'–'}</td>
+      <td style="font-size:11px;color:var(--txt3)">${s.loc||'–'}</td>
+      <td style="color:#f59e0b;letter-spacing:-1px">${'★'.repeat(s.feel||0)+'☆'.repeat(5-(s.feel||0))}</td>
+      <td onclick="event.stopPropagation()"><button onclick="delS(${s.id})" style="background:none;border:none;color:#ef4444;cursor:pointer;font-size:15px;font-weight:700;padding:0 6px">×</button></td>
+    </tr>`;
+  }).join('')}</tbody></table></div></div>`;
+}
+
+// Override renderProgress two-col
+const _rProgress = renderProgress;
+renderProgress = function(){
+  const view = document.getElementById('view-progress');
+  if(!view) return;
+  _rProgress();
+  setTimeout(()=>{
+    const cards = [...view.querySelectorAll('.chart-card,.card')];
+    if(cards.length < 2) return;
+    const col1 = document.createElement('div');
+    col1.style.cssText = 'display:flex;flex-direction:column;gap:14px';
+    const col2 = document.createElement('div');
+    col2.style.cssText = 'display:flex;flex-direction:column;gap:14px';
+    cards.forEach((c,i)=>(i%2===0?col1:col2).appendChild(c));
+    const grid = document.createElement('div');
+    grid.className = 'two-col';
+    grid.appendChild(col1); grid.appendChild(col2);
+    view.innerHTML = '';
+    view.appendChild(grid);
+    setTimeout(()=>{ drawChart1?.(); drawChart2?.(); }, 60);
+  }, 20);
+};
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT') return;
+  if(document.getElementById('modal').style.display!=='none'){ if(e.key==='Escape') closeModal(); return; }
+  const map = {d:'home',p:'planner',l:'log',r:'progress',w:'weekly'};
+  if(e.key.toLowerCase()==='n'){ openDayModal(fmtDate(TODAY,true)); return; }
+  const v = map[e.key.toLowerCase()];
+  if(v) switchView(v);
+});
+
+// Drag & drop
+function handleDrop(e){
+  e.preventDefault();
+  document.getElementById('drag-z').classList.remove('show');
+  const file = e.dataTransfer.files[0];
+  if(!file) return;
+  const name = file.name.toLowerCase();
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try{
+      let data;
+      if(name.endsWith('.gpx')) data=parseGPX(ev.target.result,file.name);
+      else if(name.endsWith('.tcx')) data=parseTCX(ev.target.result,file.name);
+      else if(name.endsWith('.fit')) data=parseFIT(ev.target.result,file.name);
+      if(data){ openDayModal(data.date||fmtDate(TODAY,true)); setTimeout(()=>applyToModal(data),100); }
+    }catch(err){ alert('Chyba: '+err.message); }
+  };
+  name.endsWith('.fit')?reader.readAsArrayBuffer(file):reader.readAsText(file);
+}
+
+// Dark mode sync
+const _tDark = toggleDark;
+toggleDark = function(){
+  _tDark();
+  const t = document.documentElement.getAttribute('data-theme');
+  const ico = t==='dark'?'☀️':'🌙';
+  const d1=document.getElementById('dark-btn'); if(d1) d1.textContent=ico;
+  const d2=document.getElementById('dark-ico'); if(d2) d2.textContent=ico;
+};
+(function(){
+  const t=document.documentElement.getAttribute('data-theme');
+  const ico=t==='dark'?'☀️':'🌙';
+  const d1=document.getElementById('dark-btn'); if(d1) d1.textContent=ico;
+  const d2=document.getElementById('dark-ico'); if(d2) d2.textContent=ico;
+})();
+
+// Splash + init
+setTimeout(()=>{
+  document.getElementById('splash').classList.add('hide');
+  const app=document.getElementById('app'); app.style.opacity='1';
+  switchView('home');
+}, 1900);
+
+// ═══ AI TÝŽDENNÉ HODNOTENIE ═══════════════════════════════════════════════
+
+async function aiWeeklyEval(){
+  // Get current week data
+  const wkIdx2 = Math.max(0, Math.floor((TODAY - PREP_START) / 86400000 / 7));
+  const wk = PLAN_WEEKS[wkIdx2];
+  const wkStart = new Date(PREP_START); wkStart.setDate(wkStart.getDate()+(wkIdx2)*7);
+  const wkEnd = new Date(wkStart); wkEnd.setDate(wkEnd.getDate()+6);
+  const wkSess = sessions.filter(s=>{ const d=new Date(s.date);d.setHours(0,0,0,0); return d>=wkStart&&d<=wkEnd; });
+  const wkMeta2 = wkMeta['wk'+(wkIdx2+1)]||{};
+
+  const prompt = `Si tréningový kouč pre triatlon Ironman 70.3. Analyzuj tento tréningový týždeň pre atleta Alexa (23 rokov, 74kg, cieľ 5:45-6:20h na Ironman 70.3 Zell am See 30.8.2026).
+
+ZÁKLADNÉ ZÓNY:
+Z1 < 144 bpm | Z2 144-157 bpm | Z3 158-166 bpm | Z4 167+ bpm
+Cieľ: 80% tréningov v Z2 (aeróbna základňa)
+
+PLÁN TÝŽDEŇ ${wkIdx2+1} (${wk?.d||''}):
+${wk?.days?.join(', ')||'Voľný tréning'}
+Fáza: ${PLF[wk?.phase||'pre']||'Pre-season'}
+
+ODTRÉNOVANÉ (${wkSess.length} tréningov):
+${wkSess.map(s=>`- ${TC[s.type]?.lbl||s.type}${s.sub?' '+s.sub:''}: ${s.dist||''}${s.type==='swim'?'m':'km'} za ${s.time||'?'}, HR avg ${s.hrA||'?'}bpm, Z2=${s.z2||0}%, Z3=${s.z3||0}%, Z4=${s.z4||0}%, Kcal=${s.kc||'?'}`).join('\n')||'Žiadne záznamy'}
+
+SUBJEKTÍVNE HODNOTENIE:
+Únava: ${wkMeta2.fatigue||'?'}/5 | Motivácia: ${wkMeta2.motivation||'?'}/5 | Spánok: ${wkMeta2.sleep||'?'}/5
+Poznámka: ${wkMeta2.note||'žiadna'}
+
+Napíš hodnotenie v slovenčine, struktúrované takto (max 300 slov):
+1. **Celkové hodnotenie** (1-2 vety, konkrétne čísla)
+2. **Čo fungovalo** (2-3 body)
+3. **Čo zlepšiť** (2-3 konkrétne body)  
+4. **Plán na budúci týždeň** (2-3 úpravy)
+5. **Motivačná záverečná veta**
+
+Buď konkrétny, použij čísla, nebuď všeobecný.`;
+
+  // Show modal with loading state
+  document.getElementById('modal-content').innerHTML = `
+    <div style="text-align:center;padding:20px 0">
+      <div style="font-size:32px;margin-bottom:12px">🤖</div>
+      <div style="font-size:18px;font-weight:700;color:var(--txt);margin-bottom:6px">AI hodnotenie týždňa ${wkIdx2+1}</div>
+      <div style="font-size:13px;color:var(--txt3);margin-bottom:20px">Claude analyzuje tvoj týždeň...</div>
+      <div style="display:flex;gap:4px;justify-content:center">
+        <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;animation:pulse 1s infinite"></div>
+        <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;animation:pulse 1s .2s infinite"></div>
+        <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;animation:pulse 1s .4s infinite"></div>
+      </div>
+    </div>`;
+  document.getElementById('modal').style.display='flex';
+
+  try{
+    const resp = await fetch('/.netlify/functions/claude',{
+      method:'POST',
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const data = await resp.json();
+    const text = data.content?.[0]?.text || 'Chyba pri generovaní hodnotenia.';
+
+    // Format markdown-like text
+    const formatted = text
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\n\n/g,'</p><p style="margin-top:10px">')
+      .replace(/\n/g,'<br>');
+
+    // Save evaluation
+    const key = 'wk'+(wkIdx2+1);
+    if(!wkMeta[key]) wkMeta[key]={};
+    wkMeta[key].aiEval = text;
+    wkMeta[key].aiDate = new Date().toISOString().split('T')[0];
+    saveWk();
+
+    document.getElementById('modal-content').innerHTML = `
+      <div style="margin-bottom:6px;display:flex;align-items:center;gap:10px">
+        <span style="font-size:24px">🤖</span>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--txt)">AI hodnotenie — Týždeň ${wkIdx2+1}</div>
+          <div style="font-size:12px;color:var(--txt3)">${PLF[wk?.phase||'pre']||''} · ${wk?.d||''}</div>
+        </div>
+      </div>
+      <div style="height:1px;background:var(--brd);margin:14px 0"></div>
+      <div style="font-size:14px;line-height:1.7;color:var(--txt)"><p>${formatted}</p></div>
+      <div style="height:1px;background:var(--brd);margin:16px 0"></div>
+      <div style="display:flex;gap:8px">
+        <button onclick="closeModal()" style="flex:1;padding:12px;font-size:13px;font-weight:700;border:none;border-radius:10px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;cursor:pointer">Zatvoriť</button>
+        <button onclick="switchView('weekly');closeModal()" style="padding:12px 18px;font-size:12px;font-weight:600;border:1.5px solid var(--brd);border-radius:10px;background:var(--surf);color:var(--txt2);cursor:pointer">Otvoriť týždeň →</button>
+      </div>`;
+  } catch(err){
+    document.getElementById('modal-content').innerHTML = `
+      <div style="text-align:center;padding:20px">
+        <div style="font-size:32px;margin-bottom:10px">⚠️</div>
+        <div style="font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px">Chyba pripojenia</div>
+        <div style="font-size:13px;color:var(--txt3);margin-bottom:16px">${err.message}</div>
+        <button onclick="closeModal()" style="padding:10px 24px;border:none;border-radius:9px;background:#3b82f6;color:#fff;font-size:13px;font-weight:700;cursor:pointer">Zavrieť</button>
+      </div>`;
+  }
+}
+
+// Show last AI eval in weekly view
+function showLastAiEval(wkN){
+  const key = 'wk'+wkN;
+  const wd = wkMeta[key]||{};
+  if(!wd.aiEval) return '';
+  const formatted = wd.aiEval.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  return `<div style="background:linear-gradient(135deg,rgba(37,99,235,.06),rgba(124,58,237,.04));border:1px solid rgba(59,130,246,.2);border-radius:12px;padding:16px 18px;margin-top:12px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+      <span style="font-size:18px">🤖</span>
+      <div style="font-size:13px;font-weight:700;color:var(--txt)">AI hodnotenie z ${wd.aiDate||'?'}</div>
+    </div>
+    <div style="font-size:13px;line-height:1.65;color:var(--txt2)">${formatted}</div>
+  </div>`;
+}
+
+// ═══ PDF EXPORT ════════════════════════════════════════════════════════════
+
+function exportPDF(){
+  // Choose export scope
+  document.getElementById('modal-content').innerHTML = `
+    <div style="font-size:20px;font-weight:800;color:var(--txt);margin-bottom:6px">Export PDF reportu</div>
+    <div style="font-size:13px;color:var(--txt3);margin-bottom:20px">Vyber čo chceš exportovať</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+      ${['Celá príprava','Aktuálna fáza','Posledné 4 týždne','Len tento týždeň'].map((l,i)=>`
+        <button onclick="generatePDF(${i})" style="padding:14px 18px;font-size:14px;font-weight:600;border:1.5px solid var(--brd);border-radius:10px;background:var(--surf2);color:var(--txt);cursor:pointer;text-align:left;transition:all .15s" onmouseover="this.style.borderColor='#3b82f6';this.style.background='var(--accent-lt)'" onmouseout="this.style.borderColor='var(--brd)';this.style.background='var(--surf2)'">${['📊','📈','📋','📅'][i]} ${l}</button>`).join('')}
+    </div>
+    <button onclick="closeModal()" style="width:100%;padding:11px;font-size:13px;font-weight:600;border:1.5px solid var(--brd);border-radius:10px;background:var(--surf);color:var(--txt2);cursor:pointer">Zrušiť</button>`;
+  document.getElementById('modal').style.display='flex';
+}
+
+function generatePDF(scope){
+  // Filter sessions by scope
+  let filteredSess = [...sessions];
+  let title = 'Ironman 70.3 · Alex · Zell am See 2026';
+  let subtitle = '';
+
+  if(scope===1){
+    const curPhase = getPhaseForDate(TODAY);
+    filteredSess = sessions.filter(s=>s.phase===curPhase);
+    subtitle = PLF[curPhase]||curPhase;
+  } else if(scope===2){
+    const d4w = new Date(TODAY); d4w.setDate(d4w.getDate()-28);
+    filteredSess = sessions.filter(s=>new Date(s.date)>=d4w);
+    subtitle = 'Posledné 4 týždne';
+  } else if(scope===3){
+    const wkS = getWkStart(TODAY);
+    filteredSess = sessions.filter(s=>{const d=new Date(s.date);d.setHours(0,0,0,0);return d>=wkS&&d<=TODAY;});
+    subtitle = 'Aktuálny týždeň';
+  } else {
+    subtitle = 'Celá príprava';
+  }
+
+  // Compute stats
+  const km = filteredSess.filter(s=>s.type==='run'||s.type==='brick').reduce((a,s)=>a+(parseFloat(s.dist)||0),0);
+  const bk = filteredSess.filter(s=>s.type==='bike').reduce((a,s)=>a+(parseFloat(s.dist)||0),0);
+  const sw = filteredSess.filter(s=>s.type==='swim').reduce((a,s)=>a+(parseFloat(s.dist)||0),0);
+  const kc = filteredSess.reduce((a,s)=>a+(parseInt(s.kc)||0),0);
+  const avgZ2 = filteredSess.filter(s=>s.z2&&parseInt(s.z2)>0).length ?
+    Math.round(filteredSess.filter(s=>s.z2&&parseInt(s.z2)>0).reduce((a,s)=>a+(parseInt(s.z2)||0),0)/filteredSess.filter(s=>s.z2&&parseInt(s.z2)>0).length) : 0;
+
+  const rows = filteredSess.map(s=>{
+    const tc2=TC[s.type]||TC.rest;
+    const z1=parseInt(s.z1)||0,z2=parseInt(s.z2)||0,z3=parseInt(s.z3)||0,z4=parseInt(s.z4)||0;
+    return `<tr>
+      <td>${fmtDateDisp(s.date)}</td>
+      <td style="color:${tc2.c};font-weight:600">${tc2.ico} ${tc2.lbl}${s.sub?' · '+s.sub:''}</td>
+      <td>${s.dist||'–'}${s.dist?(s.type==='swim'?'m':'km'):''}</td>
+      <td>${s.time||'–'}</td>
+      <td>${s.pace||'–'}</td>
+      <td>${s.hrA?s.hrA+' bpm':'–'}</td>
+      <td>${z2>0?`<span style="color:#2563eb;font-weight:700">${z2}%</span>`:'–'}</td>
+      <td>${z3>0?`<span style="color:#d97706;font-weight:700">${z3}%</span>`:'–'}</td>
+      <td>${z4>0?`<span style="color:#dc2626;font-weight:700">${z4}%</span>`:'–'}</td>
+      <td>${s.kc?parseInt(s.kc).toLocaleString():'–'}</td>
+    </tr>`;
+  }).join('');
+
+  const pdfHTML = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:#0f172a;background:#fff;padding:24px;font-size:12px}
+    .header{background:linear-gradient(135deg,#0d1117,#1a1f35);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:20px}
+    .header h1{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px}
+    .header p{font-size:12px;color:#94a3b8}
+    .header .cd{display:inline-block;background:rgba(59,130,246,.2);border:1px solid rgba(59,130,246,.3);border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;color:#93c5fd;margin-top:10px}
+    .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+    .stat{border-radius:10px;padding:14px 10px;text-align:center;border:1.5px solid}
+    .stat-val{font-size:22px;font-weight:800;line-height:1}
+    .stat-lbl{font-size:9px;font-weight:700;margin-top:4px;text-transform:uppercase;letter-spacing:.4px;opacity:.7}
+    .section-title{font-size:14px;font-weight:700;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #f1f5f9}
+    table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:20px}
+    th{text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid #e2e8f0;background:#f8fafc}
+    td{padding:8px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+    tr:hover td{background:#fafbfc}
+    .footer{margin-top:20px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:10px;color:#94a3b8;display:flex;justify-content:space-between}
+    .pr-box{background:#fafbfc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .pr-item .pr-lbl{font-size:10px;color:#94a3b8;font-weight:600;margin-bottom:3px}
+    .pr-item .pr-val{font-size:15px;font-weight:800}
+    @media print{body{padding:12px}.header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.stat{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style></head><body>
+  <div class="header">
+    <h1>${title}</h1>
+    <p>Export: ${subtitle} · Vygenerované ${fmtDateDisp(fmtDate(TODAY,true))}</p>
+    <div class="cd">${Math.ceil((RACE_DATE-TODAY)/86400000)} dní do preteku</div>
+  </div>
+  <div class="stats">
+    <div class="stat" style="background:#fff7ed;border-color:#fed7aa"><div class="stat-val" style="color:#ea580c">${km.toFixed(1)}</div><div class="stat-lbl" style="color:#ea580c">km beh</div></div>
+    <div class="stat" style="background:#f0f9ff;border-color:#bae6fd"><div class="stat-val" style="color:#0284c7">${Math.round(sw).toLocaleString()}</div><div class="stat-lbl" style="color:#0284c7">m plávanie</div></div>
+    <div class="stat" style="background:#f0fdf4;border-color:#bbf7d0"><div class="stat-val" style="color:#16a34a">${bk.toFixed(1)}</div><div class="stat-lbl" style="color:#16a34a">km bike</div></div>
+    <div class="stat" style="background:#f8fafc;border-color:#e2e8f0"><div class="stat-val" style="color:#0f172a">${filteredSess.length}</div><div class="stat-lbl" style="color:#475569">tréningov</div></div>
+    <div class="stat" style="background:#fce7f3;border-color:#fbcfe8"><div class="stat-val" style="color:#be185d">${kc.toLocaleString()}</div><div class="stat-lbl" style="color:#be185d">kcal</div></div>
+  </div>
+  <div class="pr-box">
+    <div class="pr-item"><div class="pr-lbl">Najrýchlejší pace Z2</div><div class="pr-val" style="color:#ea580c">${prs.runPace?Math.floor(prs.runPace/60)+':'+String(Math.round(prs.runPace%60)).padStart(2,'0')+' min/km':'–'}</div></div>
+    <div class="pr-item"><div class="pr-lbl">Najdlhší beh</div><div class="pr-val" style="color:#ea580c">${prs.runDist?prs.runDist.toFixed(1)+' km':'–'}</div></div>
+    <div class="pr-item"><div class="pr-lbl">Najdlhší bike</div><div class="pr-val" style="color:#16a34a">${prs.bikeDist?prs.bikeDist.toFixed(1)+' km':'–'}</div></div>
+    <div class="pr-item"><div class="pr-lbl">Avg Z2 %</div><div class="pr-val" style="color:#2563eb">${avgZ2>0?avgZ2+'%':'–'}</div></div>
+  </div>
+  <div class="section-title">Záznamy tréningov (${filteredSess.length})</div>
+  <table>
+    <thead><tr><th>Dátum</th><th>Typ</th><th>Vzd.</th><th>Čas</th><th>Pace</th><th>HR</th><th>Z2</th><th>Z3</th><th>Z4</th><th>Kcal</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <div class="footer">
+    <span>Ironman 70.3 · Alex · Zell am See 30.8.2026</span>
+    <span>Vygenerované appkou IM703 · ${new Date().toLocaleDateString('sk-SK')}</span>
+  </div>
+  </body></html>`;
+
+  const w = window.open('','_blank');
+  if(w){
+    w.document.write(pdfHTML);
+    w.document.close();
+    setTimeout(()=>w.print(), 500);
+  }
+  closeModal();
+}
+
+</script>
+</body>
+</html>
