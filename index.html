@@ -909,6 +909,143 @@ body { font-size: 14px; line-height: 1.5; }
 /* ═══ CARD HOVER SPORT ACCENT ════════════════════════════════════════════════ */
 .scard { transition: box-shadow .15s, transform .15s, border-color .15s !important; }
 
+
+/* ═══ RESPONSIVE MOBILE LAYOUT ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  html, body { height: 100%; overflow: hidden; }
+
+  .pc-app {
+    flex-direction: column !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide sidebar on mobile */
+  .sidebar { display: none !important; }
+
+  .pc-main {
+    height: 100vh !important;
+    width: 100% !important;
+  }
+
+  /* Topbar mobile */
+  .pc-topbar {
+    height: 52px !important;
+    padding: 0 14px !important;
+  }
+  .pc-tb-title { font-size: 14px !important; }
+  .btn-new { font-size: 12px !important; padding: 7px 12px !important; }
+  .btn-new span { display: none; }
+
+  /* Scroll area */
+  .pc-scroll {
+    padding: 12px 12px 80px !important;
+    height: calc(100vh - 52px - 60px) !important;
+  }
+
+  /* BOTTOM NAV for mobile */
+  .mobile-bnav {
+    display: flex !important;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--surf);
+    border-top: 1px solid var(--brd);
+    z-index: 200;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mobile-bnav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--txt3);
+    transition: color .15s;
+    padding: 6px 0;
+  }
+  .mobile-bnav-item.active { color: #3b82f6; }
+  .mobile-bnav-ico { font-size: 20px; line-height: 1; }
+  .mobile-bnav-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px; }
+
+  /* TWO COL → single col */
+  .two-col, .three-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Dashboard mobile */
+  .today-card { padding: 16px !important; }
+  .today-date { font-size: 22px !important; }
+  .today-name { font-size: 15px !important; }
+
+  /* Rings row 3 col keep */
+  .rings-row { grid-template-columns: repeat(3,1fr) !important; }
+  .ring-wrap { width: 64px !important; height: 64px !important; }
+  .ring-svg { width: 64px !important; height: 64px !important; }
+  .ring-val { font-size: 12px !important; }
+  .ring-lbl { font-size: 10px !important; }
+
+  /* Stats strip 3+2 */
+  .sum-grid { grid-template-columns: repeat(3,1fr) !important; }
+
+  /* Calendar cells smaller */
+  .cal-cell { min-height: 52px !important; padding: 5px 4px !important; }
+  .cal-num { font-size: 11px !important; }
+  .cal-ico { font-size: 13px !important; margin-bottom: 2px !important; }
+  .cal-plan-txt { font-size: 9px !important; -webkit-line-clamp: 1 !important; }
+  .cal-sess-hr { display: none !important; }
+  .cal-done-badge { width: 14px !important; height: 14px !important; font-size: 8px !important; top: 3px !important; right: 3px !important; }
+
+  /* Planner right panel */
+  #view-planner > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Session cards */
+  .sc-title { font-size: 14px !important; }
+  .mc-val { font-size: 14px !important; }
+  .mc4 { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Weekly */
+  .wk-days-row { gap: 4px !important; }
+  .wk-day-cell { min-height: 72px !important; padding: 8px 4px !important; }
+  .wkd-ico { font-size: 18px !important; }
+  .wkd-lbl { font-size: 9px !important; }
+  .wk-stats4 { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Log */
+  .log-filters { flex-wrap: nowrap !important; overflow-x: auto !important; }
+  .lfil { flex-shrink: 0 !important; }
+
+  /* Modal */
+  .modal-overlay { align-items: flex-end !important; }
+  .modal {
+    border-radius: 20px 20px 0 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 92vh !important;
+    padding: 20px 16px !important;
+  }
+  .mg3 { grid-template-columns: 1fr 1fr !important; }
+  .mg4 { grid-template-columns: repeat(2,1fr) !important; }
+  .zrow4 { grid-template-columns: repeat(2,1fr) !important; }
+  #modal-type-btns { gap: 5px !important; }
+  #modal-type-btns button { padding: 7px 10px !important; font-size: 11px !important; }
+
+  /* Charts */
+  .chart-wrap { height: 160px !important; }
+
+  /* PR cards */
+  .sc-extra { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* Show mobile nav only on mobile */
+.mobile-bnav { display: none; }
+
 </style>
 </head>
 <body>
@@ -1005,6 +1142,23 @@ body { font-size: 14px; line-height: 1.5; }
 </div>
 
 <!-- DRAG ZONE -->
+<div class="mobile-bnav" id="mobile-bnav">
+  <button class="mobile-bnav-item active" data-v="home" onclick="switchView('home')">
+    <div class="mobile-bnav-ico">🏠</div><div class="mobile-bnav-lbl">Dnes</div>
+  </button>
+  <button class="mobile-bnav-item" data-v="planner" onclick="switchView('planner')">
+    <div class="mobile-bnav-ico">📅</div><div class="mobile-bnav-lbl">Plán</div>
+  </button>
+  <button class="mobile-bnav-item" data-v="log" onclick="switchView('log')">
+    <div class="mobile-bnav-ico">📝</div><div class="mobile-bnav-lbl">Zápisník</div>
+  </button>
+  <button class="mobile-bnav-item" data-v="progress" onclick="switchView('progress')">
+    <div class="mobile-bnav-ico">📈</div><div class="mobile-bnav-lbl">Progress</div>
+  </button>
+  <button class="mobile-bnav-item" data-v="weekly" onclick="switchView('weekly')">
+    <div class="mobile-bnav-ico">📊</div><div class="mobile-bnav-lbl">Týždeň</div>
+  </button>
+</div>
 <div class="drag-zone" id="drag-z">
   <div class="dz-ico">⌚</div>
   <div class="dz-txt">Pretiahni Garmin súbor sem</div>
@@ -2559,6 +2713,7 @@ function switchView(v){
   const vEl = document.getElementById('view-'+v);
   if(vEl) vEl.classList.add('active');
   document.querySelectorAll('.sb-item').forEach(b => b.classList.toggle('active', b.dataset.v===v));
+  document.querySelectorAll('.mobile-bnav-item').forEach(b => b.classList.toggle('active', b.dataset.v===v));
   const tb = document.getElementById('pc-tb-title');
   if(tb) tb.textContent = PC_TITLES[v] || v;
   const renderMap = {home:renderHome, planner:renderPlanner, log:renderLog, progress:renderProgress, weekly:renderWeekly};
@@ -2897,7 +3052,144 @@ function generatePDF(scope){
     .pr-item .pr-lbl{font-size:10px;color:#94a3b8;font-weight:600;margin-bottom:3px}
     .pr-item .pr-val{font-size:15px;font-weight:800}
     @media print{body{padding:12px}.header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.stat{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-  </style></head><body>
+  
+/* ═══ RESPONSIVE MOBILE LAYOUT ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  html, body { height: 100%; overflow: hidden; }
+
+  .pc-app {
+    flex-direction: column !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide sidebar on mobile */
+  .sidebar { display: none !important; }
+
+  .pc-main {
+    height: 100vh !important;
+    width: 100% !important;
+  }
+
+  /* Topbar mobile */
+  .pc-topbar {
+    height: 52px !important;
+    padding: 0 14px !important;
+  }
+  .pc-tb-title { font-size: 14px !important; }
+  .btn-new { font-size: 12px !important; padding: 7px 12px !important; }
+  .btn-new span { display: none; }
+
+  /* Scroll area */
+  .pc-scroll {
+    padding: 12px 12px 80px !important;
+    height: calc(100vh - 52px - 60px) !important;
+  }
+
+  /* BOTTOM NAV for mobile */
+  .mobile-bnav {
+    display: flex !important;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--surf);
+    border-top: 1px solid var(--brd);
+    z-index: 200;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mobile-bnav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--txt3);
+    transition: color .15s;
+    padding: 6px 0;
+  }
+  .mobile-bnav-item.active { color: #3b82f6; }
+  .mobile-bnav-ico { font-size: 20px; line-height: 1; }
+  .mobile-bnav-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px; }
+
+  /* TWO COL → single col */
+  .two-col, .three-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Dashboard mobile */
+  .today-card { padding: 16px !important; }
+  .today-date { font-size: 22px !important; }
+  .today-name { font-size: 15px !important; }
+
+  /* Rings row 3 col keep */
+  .rings-row { grid-template-columns: repeat(3,1fr) !important; }
+  .ring-wrap { width: 64px !important; height: 64px !important; }
+  .ring-svg { width: 64px !important; height: 64px !important; }
+  .ring-val { font-size: 12px !important; }
+  .ring-lbl { font-size: 10px !important; }
+
+  /* Stats strip 3+2 */
+  .sum-grid { grid-template-columns: repeat(3,1fr) !important; }
+
+  /* Calendar cells smaller */
+  .cal-cell { min-height: 52px !important; padding: 5px 4px !important; }
+  .cal-num { font-size: 11px !important; }
+  .cal-ico { font-size: 13px !important; margin-bottom: 2px !important; }
+  .cal-plan-txt { font-size: 9px !important; -webkit-line-clamp: 1 !important; }
+  .cal-sess-hr { display: none !important; }
+  .cal-done-badge { width: 14px !important; height: 14px !important; font-size: 8px !important; top: 3px !important; right: 3px !important; }
+
+  /* Planner right panel */
+  #view-planner > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Session cards */
+  .sc-title { font-size: 14px !important; }
+  .mc-val { font-size: 14px !important; }
+  .mc4 { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Weekly */
+  .wk-days-row { gap: 4px !important; }
+  .wk-day-cell { min-height: 72px !important; padding: 8px 4px !important; }
+  .wkd-ico { font-size: 18px !important; }
+  .wkd-lbl { font-size: 9px !important; }
+  .wk-stats4 { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Log */
+  .log-filters { flex-wrap: nowrap !important; overflow-x: auto !important; }
+  .lfil { flex-shrink: 0 !important; }
+
+  /* Modal */
+  .modal-overlay { align-items: flex-end !important; }
+  .modal {
+    border-radius: 20px 20px 0 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 92vh !important;
+    padding: 20px 16px !important;
+  }
+  .mg3 { grid-template-columns: 1fr 1fr !important; }
+  .mg4 { grid-template-columns: repeat(2,1fr) !important; }
+  .zrow4 { grid-template-columns: repeat(2,1fr) !important; }
+  #modal-type-btns { gap: 5px !important; }
+  #modal-type-btns button { padding: 7px 10px !important; font-size: 11px !important; }
+
+  /* Charts */
+  .chart-wrap { height: 160px !important; }
+
+  /* PR cards */
+  .sc-extra { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* Show mobile nav only on mobile */
+.mobile-bnav { display: none; }
+
+</style></head><body>
   <div class="header">
     <h1>${title}</h1>
     <p>Export: ${subtitle} · Vygenerované ${fmtDateDisp(fmtDate(TODAY,true))}</p>
